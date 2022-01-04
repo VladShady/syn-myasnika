@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  src: url("../font/HelveticaNeueCyr-Roman.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Gecko";
+  src: url("../font/Gecko.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "HelveticaNeueCyrBold";
+  src: url("../font/HelveticaNeueCyr-Black.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "HelveticaNeueCyrMedium";
+  src: url("../font/HelveticaNeueCyr-Medium.ttf");
+  font-weight: 600;
+}/*# sourceMappingURL=fonts.css.map */

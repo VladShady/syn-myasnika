@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="./sass/main.css">
+    <title>Мясная лавка</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <div class="main">
+                <header class="header">
+                    <div class="header__container container">
+                        <div class="header__logo">
+                            <img class="logo__icon" src="img.svg/СМ.svg" alt="">
+                            <span class="logo__title">Сын мясника</span>
+                        </div>
+                        <div class="header__navbar">
+                            <ul class="header__menu">
+                                <li class="menu__item">
+                                    <a class="menu__item-link" href="./index.html">Главная</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a class="menu__item-link" href="./shop.html">Мясная лавка</a>
+                                </li>
+                                <li class="menu__item">Доставка</li>
+                                <li class="menu__item">О компании</li>
+                                <li class="menu__item">Отзывы</li>
+                            </ul>
+                            <div class="shop-cart-wrapper">
+                                <span class="shop-cart-text">Корзина</span>
+                                <img class="shop-cart" src="img.svg/shopping-cart.svg" alt="">
+                            </div>
+                            <div class="reg">
+                                <img class="reg__icon" src="img.svg/reg-icon.svg" alt="">
+                                <span class="reg__text">Вход / Регистрация</span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="main__container container">
+                    <div class="filter">
+                        <div class="filter__header">
+                            <span class="filter__header-item">Фильтр</span>
+                            <span class="filter__header-item">Сбросить все</span>
+                        </div>
+                        <div class="filter__kind">
+                            <div class="filter__title" id="filter__title-kind">
+                                <span class="filter__name">Вид</span>
+                                <span class="plus-minus-icon" id="plus-minus-icon__kind">
+                                    <span class="h-line"></span>
+                                    <span class="v-line" id="v-line__kind"></span>
+                                </span>
+                            </div>
+                            <div class="filter__container container">
+                                <form class="radio-form" id="filter__kind-form" action="">
+                                    <label for="radio1" class="radio">
+                                        <input type="radio" id="radio1" value="Свинина" name="kind"
+                                            class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Свинина
+                                    </label>
+                                    <label for="radio2" class="radio">
+                                        <input type="radio" id="radio2" value="Говядина" name="kind"
+                                            class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Говядина
+                                    </label>
+                                    <label for="radio3" class="radio">
+                                        <input type="radio" id="radio3" value="Баранина" name="kind"
+                                            class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Баранина
+                                    </label>
+                                    <label for="radio4" class="radio">
+                                        <input type="radio" id="radio4" value="Курица" name="kind" class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Курица
+                                    </label>
+                                    <label for="radio5" class="radio">
+                                        <input type="radio" id="radio5" value="Кролик" name="kind" class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Кролик
+                                    </label>
+                                    <label for="radio6" class="radio">
+                                        <input type="radio" id="radio6" value="Индейка" name="kind"
+                                            class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Индейка
+                                    </label>
+                                    <label for="radio7" class="radio">
+                                        <input type="radio" id="radio7" value="Гусь" name="kind" class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Гусь
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="filter__price">
+                            <div class="filter__title" id="filter__title-price">
+                                <span class="filter__name">Цена</span>
+                                <span class="plus-minus-icon" id="plus-minus-icon__price">
+                                    <span class="h-line"></span>
+                                    <span class="v-line" id="v-line__price"></span>
+                                </span>
+                            </div>
+
+                            <div class="filter__container container">
+                                <form class="price__form" id="filter__price-form" action="">
+                                    <span class="price__input-wrap">
+                                        <input class="price__input price__input--min" type="number" name="" id=""
+                                            value="0">
+                                        <label class="price__label">₽</label>
+                                    </span>
+                                    <span class="price__input-wrap">
+                                        <input class="price__input price__input--max" type="number" name="" id=""
+                                            value="1000">
+                                        <label class="price__label">₽</label>
+                                    </span>
+
+                                    <div class="range__slider">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="range__input">
+                                        <input type="range" class="range-min" min="0" max="1000" value="0" step="10">
+                                        <input type="range" class="range-max" min="0" max="1000" value="1000" step="10">
+                                    </div>
+
+                                    <div class="radio-form radio-form--price">
+                                        <label for="radio8" class="radio">
+                                            <input type="radio" id="radio8" value="Розница" name="sellType"
+                                                class="radio__input">
+                                            <div class="radio__div"></div>
+                                            Розница
+                                        </label>
+                                        <label for="radio9" class="radio">
+                                            <input type="radio" id="radio9" value="Оптом" name="sellType"
+                                                class="radio__input">
+                                            <div class="radio__div"></div>
+                                            Оптом
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="filter__prod">
+                            <div class="filter__title" id="filter__title-prod">
+                                <span class="filter__name">Производство мяса</span>
+                                <span class="plus-minus-icon" id="plus-minus-icon__prod">
+                                    <span class="h-line"></span>
+                                    <span class="v-line" id="v-line__prod"></span>
+                                </span>
+                            </div>
+
+                            <div class="filter__container container">
+                                <form class="prod__form" id="filter__prod-form" action="">
+                                    <label for="radio10" class="radio">
+                                        <input type="radio" id="radio10" value="homemade" name="production"
+                                            class="radio__input">
+                                        <div class="radio__div"></div>
+                                        Домашние
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="categories">
+                        <div class="categories__header">
+                            <span class="categories__title">Категории товаров</span>
+                            <span class="scheme">
+                                <span class="scheme__text">Схема разделки тушки</span>
+                                <img class="red-arrow" src="img.svg/red-right-arrow.svg" alt="">
+                                <img class="bull" src="img.png/бык.png" alt="">
+                            </span>
+                        </div>
+
+                        <div class="modal" id="modal-scheme">
+                            <div class="modal__dialog">
+                                <img class="close-icon" id="modal-close" src="img.svg/close.svg" alt="">
+                                <img class="scheme-img" src="img.jpg/scheme.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <form class="search">
+                            <input class="search__input" type="text" id="search-input" placeholder="Поиск по товарам">
+                            <img class="search__icon" src="img.svg/magnifying-glass.svg" alt="">
+                            <button class="search__btn" id="search-btn" type="button">
+                                Искать
+                                <img src="img.svg/search-right-arrow.svg" alt="">
+                            </button>
+                        </form>
+
+                        <div class="categories__main">
+                            <div class="categories__products" id="products-container">
+                                <!-- <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/1.jpg" alt="">
+                                <div class="products__item-name">Свинина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">850 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/2.jpg" alt="">
+                                <div class="products__item-name">Говядина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">450 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/3.jpg" alt="">
+                                <div class="products__item-name">Баранина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">730 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/4.jpg" alt="">
+                                <div class="products__item-name">Курица</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">670 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/5.jpg" alt="">
+                                <div class="products__item-name">Свинина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">850 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/6.jpg" alt="">
+                                <div class="products__item-name">Говядина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">900 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/7.jpg" alt="">
+                                <div class="products__item-name">Баранина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">730 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/8.jpg" alt="">
+                                <div class="products__item-name">Домашний кролик</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">670 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/1.jpg" alt="">
+                                <div class="products__item-name">Свинина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">850 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/2.jpg" alt="">
+                                <div class="products__item-name">Говядина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">450 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/3.jpg" alt="">
+                                <div class="products__item-name">Баранина</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">730 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div>
+
+                            <div class="products__item">
+                                <img class="products__item-img" src="img.jpg/4.jpg" alt="">
+                                <div class="products__item-name">Курица</div>
+                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
+                                    простые блюда из свинины</div>
+
+                                <div class="products__item-order">
+                                    <span class="products__item-price">670 ₽</span>
+                                    <button class="products__item-btn" type="button">
+                                        Заказать
+                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="new-marker">New</div>
+                            </div> -->
+                            </div>
+                            <div class="categories__pagination" id="pagination">
+                                <!--<button class="prev-btn" type="button">
+                                    <img src="img.svg/pagination-arrow.svg" alt="">
+                                </button>
+                                <button class="categories__pagination-btn" type="button">1</button>
+                                <button class="categories__pagination-btn" type="button">2</button>
+                                <button class="categories__pagination-btn" type="button">3</button>
+                                <button class="categories__pagination-btn" type="button">4</button>
+                                <button class="categories__pagination-btn" type="button">5</button>
+                                <button class="next-btn" type="button">
+                                    <img src="img.svg/pagination-arrow.svg" alt="">
+                                </button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <header class="header header--footer">
+                <div class="header__container container">
+                    <div class="header__logo">
+                        <img class="logo__icon" src="img.svg/СМ.svg" alt="">
+                        <span class="logo__title">Сын мясника</span>
+                    </div>
+                    <div class="header__navbar">
+                        <ul class="header__menu">
+                            <li class="menu__item">
+                                <a class="menu__item-link" href="./index.html">Главная</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__item-link" href="./shop.html">Мясная лавка</a>
+                            </li>
+                            <li class="menu__item">Доставка</li>
+                            <li class="menu__item">О компании</li>
+                            <li class="menu__item menu__item--footer">Отзывы</li>
+                        </ul>
+                        <div class="reg">
+                            <img class="reg__icon" src="img.svg/reg-icon.svg" alt="">
+                            <span class="reg__text">Вход / Регистрация</span>
+                        </div>
+                    </div>
+
+                    <div class="header__menu-icon">
+                        <div class="menu__bar1"></div>
+                        <div class="menu__bar2"></div>
+                        <div class="menu__bar3"></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="footer__main">
+                <div class="footer__container container">
+                    <div class="footer__content">
+                        <div class="footer__shop-cart">
+                            <img class="shop-cart-icon" src="img.svg/shopping-cart.svg" alt="">
+                            <span>Корзина</span>
+                        </div>
+                        <div class="footer__location">
+                            <iframe class="footer__map"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4427.93769017304!2d44.0300224!3d56.2958506!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8d77c518203e55fc!2zNTbCsDE3JzQ3LjciTiA0NMKwMDInMjkuOCJF!5e0!3m2!1suk!2sua!4v1639665684322!5m2!1suk!2sua"
+                                width="670" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="footer__info">
+                            <div class="footer__schedule">
+                                Режим работы:
+                                <ul class="schedule__list">
+                                    <li>Понедельник: <span class="red-text">Выходной</span></li>
+                                    <li>Вт/Сб: <span class="red-text">09:00 - 20:00</span></li>
+                                    <li>Воскресенье: <span class="red-text">09:00 - 19:00</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="footer__numbers">
+                                <img class="phone-icon" src="img.svg/telephone.svg" alt="">
+
+                                <ul class="phone-numbers">
+                                    <li>
+                                        <a href="tel:123-456-7890" class="phone-number">+7 (915) 933-30-07</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:123-456-7890" class="phone-number">+7 (910) 121-22-23</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="footer__address">
+                                <img class="address-icon" src="img.svg/map.svg" alt="">
+                                <span class="address-text">
+                                    Площадь Советская, 7, Нижний Новгород,
+                                    Нижегородская обл., Россия, 603000
+                                </span>
+                            </div>
+
+                            <div class="footer__socials">
+                                <img class="socials__icon" src="img.svg/vk.svg" alt="">
+                                <img class="socials__icon" src="img.svg/yt.svg" alt="">
+                                <img class="socials__icon" src="img.svg/fb.svg" alt="">
+                                <img class="socials__icon" src="img.svg/insta.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
