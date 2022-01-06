@@ -5,12 +5,32 @@ $(document).ready(function () {
         draggable: false,
     });
 
+    const productList = document.getElementById("products-list");
+
+    for (let i = 0; i < 8; i++) {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('products__item');
+        itemElement.innerHTML = itemTemplate(productsData, i);
+
+        productList.appendChild(itemElement);
+    }
 });
 
+
+
 $("#show-more").one("click", function () {
-    $(".products__list").append($(".product__block-wrap").html());
+    // $(".products__list").append($(".product__block-wrap").html());
     $(".products__show-more").addClass("hide");
-    $(".products__block:not(:first)").children().addClass("new-hide");
+    // $(".products__block:not(:first)").children().addClass("new-hide");
+    const productList = document.getElementById("products-list");
+
+    for (let i = 8; i < 16; i++) {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('products__item');
+        itemElement.innerHTML = itemTemplate(productsData, i);
+
+        productList.appendChild(itemElement);
+    }
 });
 
 $(".scroll-down").click(function () {
@@ -520,8 +540,10 @@ function PaginationButton(page, items) {
         DisplayPage(items, singlePage, itemNum, currentPage);
 
         let currentButton = document.querySelector("#pagination button.active");
-        currentButton.classList.remove('active');
 
+        if (currentButton) {
+            currentButton.classList.remove('active');
+        }
         button.classList.add('active');
     });
 
@@ -785,4 +807,33 @@ $("input[name='production']").on('click', function () {
         SetupPagination(findCommonElement(priceSorted, Filter("production")), paginationElement, itemNum);
     }
 })
+
+function resetFilter(nameOfInput) {
+    var el = document.getElementsByName(nameOfInput);
+    for (var i = 0; i < el.length; i++) {
+        el[i].checked = false;
+    }
+
+    rangeInput[0].value = 0;
+    rangeInput[1].value = 1000;
+    priceInput[0].value = 0;
+    priceInput[1].value = 1000;
+
+    range.style.left = 0;
+    range.style.right = 0;
+
+    DisplayPage(productsData, singlePage, itemNum, currentPage);
+    SetupPagination(productsData, paginationElement, itemNum);
+}
+
+
+$("#reset-filter").on("click", function () {
+    resetFilter("kind");
+    resetFilter("sellType");
+    resetFilter("production");
+});
+
+
+
+
 

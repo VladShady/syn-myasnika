@@ -47,7 +47,7 @@
                     <div class="filter">
                         <div class="filter__header">
                             <span class="filter__header-item">Фильтр</span>
-                            <span class="filter__header-item">Сбросить все</span>
+                            <span class="filter__header-item" id="reset-filter">Сбросить все</span>
                         </div>
                         <div class="filter__kind">
                             <div class="filter__title" id="filter__title-kind">
@@ -173,6 +173,14 @@
                     </div>
 
                     <div class="categories">
+                        <div class="header__menu-icon">
+                            <label class="burger__icon" for="check">
+                                <input type="checkbox" id="check" />
+                                <span class="burger-line red"></span>
+                                <span class="burger-line red"></span>
+                                <span class="burger-line red"></span>
+                            </label>
+                        </div>
                         <div class="categories__header">
                             <span class="categories__title">Категории товаров</span>
                             <span class="scheme">
@@ -200,210 +208,10 @@
 
                         <div class="categories__main">
                             <div class="categories__products" id="products-container">
-                                <!-- <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/1.jpg" alt="">
-                                <div class="products__item-name">Свинина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
 
-                                <div class="products__item-order">
-                                    <span class="products__item-price">850 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/2.jpg" alt="">
-                                <div class="products__item-name">Говядина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">450 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/3.jpg" alt="">
-                                <div class="products__item-name">Баранина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">730 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/4.jpg" alt="">
-                                <div class="products__item-name">Курица</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">670 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/5.jpg" alt="">
-                                <div class="products__item-name">Свинина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">850 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/6.jpg" alt="">
-                                <div class="products__item-name">Говядина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">900 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/7.jpg" alt="">
-                                <div class="products__item-name">Баранина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">730 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/8.jpg" alt="">
-                                <div class="products__item-name">Домашний кролик</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">670 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/1.jpg" alt="">
-                                <div class="products__item-name">Свинина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">850 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/2.jpg" alt="">
-                                <div class="products__item-name">Говядина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">450 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/3.jpg" alt="">
-                                <div class="products__item-name">Баранина</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">730 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div>
-
-                            <div class="products__item">
-                                <img class="products__item-img" src="img.jpg/4.jpg" alt="">
-                                <div class="products__item-name">Курица</div>
-                                <div class="products__item-text">В повседневном и праздничном меню очень популярны
-                                    простые блюда из свинины</div>
-
-                                <div class="products__item-order">
-                                    <span class="products__item-price">670 ₽</span>
-                                    <button class="products__item-btn" type="button">
-                                        Заказать
-                                        <img class="shop-cart__btn" src="img.svg/shopping-cart.svg" alt="">
-                                    </button>
-                                </div>
-                                <div class="new-marker">New</div>
-                            </div> -->
                             </div>
                             <div class="categories__pagination" id="pagination">
-                                <!--<button class="prev-btn" type="button">
-                                    <img src="img.svg/pagination-arrow.svg" alt="">
-                                </button>
-                                <button class="categories__pagination-btn" type="button">1</button>
-                                <button class="categories__pagination-btn" type="button">2</button>
-                                <button class="categories__pagination-btn" type="button">3</button>
-                                <button class="categories__pagination-btn" type="button">4</button>
-                                <button class="categories__pagination-btn" type="button">5</button>
-                                <button class="next-btn" type="button">
-                                    <img src="img.svg/pagination-arrow.svg" alt="">
-                                </button>-->
+
                             </div>
                         </div>
                     </div>
@@ -411,7 +219,7 @@
             </div>
         </div>
 
-        <footer class="footer">
+        <footer class="footer mt">
             <header class="header header--footer">
                 <div class="header__container container">
                     <div class="header__logo">
