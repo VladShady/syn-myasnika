@@ -488,6 +488,7 @@ body.no-scroll {
 .products__item-img {
   height: 245px;
   width: 270px;
+  cursor: pointer;
 }
 .products__item-name {
   font-family: "HelveticaNeueCyrMedium";
@@ -1374,6 +1375,13 @@ input[type=number]::-webkit-inner-spin-button {
   letter-spacing: 0.06em;
   color: #000000;
   margin-bottom: 21px;
+  width: 190px;
+  text-decoration: none;
+}
+.back-to-shop:hover {
+  cursor: pointer;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .go-back {
@@ -1469,6 +1477,7 @@ input[type=number]::-webkit-inner-spin-button {
   max-width: 1170px;
 }
 .aditional__useful {
+  width: 58%;
   height: 715px;
   background: #ffffff;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
@@ -1491,7 +1500,7 @@ input[type=number]::-webkit-inner-spin-button {
   line-height: 27px;
 }
 .aditional__reviews {
-  min-width: 470px;
+  width: 42%;
   height: 715px;
   background: #FFFFFF;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25);
@@ -1677,6 +1686,24 @@ input[type=number]::-webkit-inner-spin-button {
   .footer__socials {
     padding: 30px 20px 0;
   }
+
+  .aditional__container {
+    flex-wrap: wrap;
+  }
+  .aditional__useful {
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .aditional__reviews {
+    width: 100%;
+    height: auto;
+  }
+
+  .reviews__info {
+    width: 80%;
+  }
 }
 @media (max-width: 992px) {
   .products__list {
@@ -1743,6 +1770,14 @@ input[type=number]::-webkit-inner-spin-button {
   .categories__products {
     justify-content: space-around;
   }
+
+  .product__block {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  .product__img {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   .title__top {
@@ -1784,6 +1819,14 @@ input[type=number]::-webkit-inner-spin-button {
   }
   .filter:hover, .filter:active {
     left: 0;
+  }
+
+  .reviews__info {
+    width: 70%;
+  }
+
+  .more__container {
+    justify-content: space-around;
   }
 }
 @media (max-width: 576px) {
@@ -1849,5 +1892,33 @@ input[type=number]::-webkit-inner-spin-button {
   }
   .search__btn {
     width: 100%;
+  }
+
+  .product__img {
+    width: 100%;
+    display: block;
+  }
+  .product__info {
+    padding: 25px;
+  }
+  .product__btn {
+    width: 230px;
+  }
+
+  .aditional__useful {
+    padding: 25px;
+  }
+  .aditional__useful-text {
+    font-size: 15px;
+  }
+  .aditional__reviews {
+    padding: 25px;
+  }
+
+  .reviews__info {
+    width: 50%;
+  }
+  .reviews__name {
+    height: auto;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -379,6 +379,7 @@ body
     &__item-img
         height: 245px
         width: 270px
+        cursor: pointer
 
     &__item-name
         font-family: "HelveticaNeueCyrMedium"
@@ -1222,6 +1223,13 @@ input[type="number"]::-webkit-inner-spin-button
     letter-spacing: 0.06em
     color: $black
     margin-bottom: 21px
+    width: 190px
+    text-decoration: none
+
+    &:hover
+        cursor: pointer
+        color: $black
+        text-decoration: underline
 
 .go-back
     transform: rotate(180deg)
@@ -1313,6 +1321,7 @@ input[type="number"]::-webkit-inner-spin-button
         max-width: 1170px
 
     &__useful
+        width: 58%
         height: 715px
         background: $white
         box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25)
@@ -1335,7 +1344,7 @@ input[type="number"]::-webkit-inner-spin-button
             line-height: 27px
 
     &__reviews
-        min-width: 470px
+        width: 42%
         height: 715px
         background: #FFFFFF
         box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.25)
@@ -1519,6 +1528,24 @@ input[type="number"]::-webkit-inner-spin-button
         &__socials
             padding: 30px 20px 0
 
+    .aditional
+        &__container
+            flex-wrap: wrap
+
+        &__useful
+            height: auto
+            margin-right: 0
+            margin-bottom: 30px
+            width: 100%
+
+        &__reviews
+            width: 100%
+            height: auto
+
+    .reviews
+        &__info
+            width: 80%
+
 @media(max-width: 992px)
 
     .products__list
@@ -1583,6 +1610,14 @@ input[type="number"]::-webkit-inner-spin-button
         &__products
             justify-content: space-around
 
+    .product
+        &__block
+            height: auto
+            flex-wrap: wrap
+
+        &__img
+            display: none
+
 @media(max-width: 768px)
 
     .title__top
@@ -1622,6 +1657,14 @@ input[type="number"]::-webkit-inner-spin-button
 
         &:hover, &:active
             left: 0
+
+    .reviews
+        &__info
+            width: 70%
+
+    .more
+        &__container
+            justify-content: space-around
 
 @media(max-width: 576px)
 
@@ -1682,3 +1725,31 @@ input[type="number"]::-webkit-inner-spin-button
 
         &__btn
             width: 100%
+
+    .product
+        &__img
+            width: 100%
+            display: block
+
+        &__info
+            padding: 25px
+
+        &__btn
+            width: 230px
+
+    .aditional
+        &__useful
+            padding: 25px
+
+            &-text
+                font-size: 15px
+
+        &__reviews
+            padding: 25px
+
+    .reviews
+        &__info
+            width: 50%
+
+        &__name
+            height: auto

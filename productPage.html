@@ -45,19 +45,23 @@
 
             <div class="info">
                 <div class="info__container container">
-                    <div class="back-to-shop">
+                    <a class="back-to-shop" href="shop.html">
                         <img class="go-back" src="./img.svg/red-right-arrow.svg" alt="">
                         Назад в магазин
-                    </div>
+                    </a>
                     <div class="product__block">
-                        <img class="product__img" src="./img.jpg/product-img.jpg" />
+                        <img class="product__img" id="product-img" src="./img.jpg/product-img.jpg" />
                         <div class="product__info">
-                            <p class="product__title">Свиная вырезка</p>
-                            <p class="product__price">850 <span class="currency">руб./кг</span></p>
-                            <p class="product__description">
-                                Свиная вырезка — это мясо заднепоясничной части, расположенной над почками вдоль
+                            <p class="product__title" id="product-title">
+                                <!--Свиная вырезка-->
+                            </p>
+                            <p class="product__price" id="product-price">
+                                <!--850--> <span class="currency">руб./кг</span>
+                            </p>
+                            <p class="product__description" id="product-description">
+                                <!-- Свиная вырезка — это мясо заднепоясничной части, расположенной над почками вдоль
                                 поясничных позвонков. Эта часть не намного нежнее карбонада, но считается диетическим
-                                продуктом, ее чаще всего жарят, нарезая поперек волокон, или запекают.
+                                продуктом, ее чаще всего жарят, нарезая поперек волокон, или запекают. -->
                             </p>
                             <button class="product__btn" type="button">Добавить в корзину</button>
                         </div>
@@ -69,8 +73,8 @@
                 <div class="aditional__container container">
                     <div class="aditional__useful">
                         <p class="aditional__useful-title">Полезно знать</p>
-                        <p class="aditional__useful-text">
-                            В течение жизни свиньи данная мышца практически не получает физической нагрузки, в связи с
+                        <p class="aditional__useful-text" id="product-useful">
+                            <!-- В течение жизни свиньи данная мышца практически не получает физической нагрузки, в связи с
                             чем
                             свиная вырезка считается наиболее вкусным и нежным мясом при его приготовлении. Вырезка —
                             самое
@@ -84,7 +88,7 @@
                             на
                             доли. Доли получаются четкой округлой формы и содержат прямого мяса больше, чем любые другие
                             куски. Cтандартная порция свинины в день обеспечит Вас дневной нормой протеина для человека.
-                            Этот вид мяса подходит как для аппетитного стейка так и для котлет и бульонов.
+                            Этот вид мяса подходит как для аппетитного стейка так и для котлет и бульонов. -->
                         </p>
                     </div>
 
@@ -105,7 +109,7 @@
                         <div class="reviews__item">
                             <img class="reviews__img" src="img.png/review-2.png" alt="">
                             <div class="reviews__info">
-                                <p class="reviews__name">Алекс Мазур</p>
+                                <p class="reviews__name">Роберт Кузь</p>
                                 <p class="reviews__text">
                                     Очень довольный покупкой мяса для гриля, привезли очень свежее действительно Сын
                                     Мясника
@@ -116,7 +120,7 @@
                         <div class="reviews__item">
                             <img class="reviews__img" src="img.png/review-3.png" alt="">
                             <div class="reviews__info">
-                                <p class="reviews__name">Алекс Мазур</p>
+                                <p class="reviews__name">Аня Соколова</p>
                                 <p class="reviews__text">
                                     Очень довольный покупкой мяса для гриля, привезли очень свежее действительно Сын
                                     Мясника
@@ -132,6 +136,15 @@
                 <div class="more__container container" id="more-products">
 
                 </div>
+            </div>
+
+            <div class="header__menu-icon">
+                <label class="burger__icon" for="check">
+                    <input type="checkbox" id="check" />
+                    <span class="burger-line red"></span>
+                    <span class="burger-line red"></span>
+                    <span class="burger-line red"></span>
+                </label>
             </div>
 
         </div>
