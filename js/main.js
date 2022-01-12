@@ -1019,11 +1019,11 @@ if (document.URL.includes("index.html")) {
         resetFilter("production");
     });
 } else if (document.URL.includes("productPage.html")) {
-    document.getElementById("product-title").innerText = sessionStorage.getItem("clickedTitle");
-    document.getElementById("product-price").prepend(sessionStorage.getItem("clickedPrice"));
-    document.getElementById("product-description").innerText = sessionStorage.getItem("clickedDescription");
-    document.getElementById("product-useful").innerText = sessionStorage.getItem("clickedUseful");
-    document.getElementById("product-img").src = sessionStorage.getItem("clickedImg");
+    document.getElementById("product-title").innerText = localStorage.getItem("clickedTitle");
+    document.getElementById("product-price").prepend(localStorage.getItem("clickedPrice"));
+    document.getElementById("product-description").innerText = localStorage.getItem("clickedDescription");
+    document.getElementById("product-useful").innerText = localStorage.getItem("clickedUseful");
+    document.getElementById("product-img").src = localStorage.getItem("clickedImg");
 
     const aditionalProducts = document.getElementById("more-products");
 
@@ -1069,11 +1069,11 @@ document.querySelectorAll(".products__item").forEach(el => {
                 clickedUseful = productsData[i].useful;
                 clickedImg = productsData[i].imgSrc;
 
-                sessionStorage.setItem("clickedTitle", clickedTitle);
-                sessionStorage.setItem("clickedPrice", clickedPrice);
-                sessionStorage.setItem("clickedDescription", clickedDescription);
-                sessionStorage.setItem("clickedUseful", clickedUseful);
-                sessionStorage.setItem("clickedImg", clickedImg);
+                localStorage.setItem("clickedTitle", clickedTitle);
+                localStorage.setItem("clickedPrice", clickedPrice);
+                localStorage.setItem("clickedDescription", clickedDescription);
+                localStorage.setItem("clickedUseful", clickedUseful);
+                localStorage.setItem("clickedImg", clickedImg);
             }
         }
         location.href = "productPage.html";
