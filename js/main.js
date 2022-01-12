@@ -562,6 +562,8 @@ if (document.URL.includes("index.html")) {
 
             productList.appendChild(itemElement);
         }
+
+        openProductPage();
     });
 
     $(".scroll-down").click(function () {
@@ -1058,28 +1060,33 @@ const onClick = function (el) {
     return el.id;
 }
 
-document.querySelectorAll(".products__item").forEach(el => {
-    el.addEventListener('click', function () {
+function openProductPage() {
 
-        for (let i = 0; i < productsData.length; i++) {
-            if (onClick(el) == productsData[i].id) {
-                clickedTitle = productsData[i].title;
-                clickedPrice = productsData[i].price;
-                clickedDescription = productsData[i].description;
-                clickedUseful = productsData[i].useful;
-                clickedImg = productsData[i].imgSrc;
 
-                localStorage.setItem("clickedTitle", clickedTitle);
-                localStorage.setItem("clickedPrice", clickedPrice);
-                localStorage.setItem("clickedDescription", clickedDescription);
-                localStorage.setItem("clickedUseful", clickedUseful);
-                localStorage.setItem("clickedImg", clickedImg);
+    document.querySelectorAll(".products__item").forEach(el => {
+        el.addEventListener('click', function () {
+
+            for (let i = 0; i < productsData.length; i++) {
+                if (onClick(el) == productsData[i].id) {
+                    clickedTitle = productsData[i].title;
+                    clickedPrice = productsData[i].price;
+                    clickedDescription = productsData[i].description;
+                    clickedUseful = productsData[i].useful;
+                    clickedImg = productsData[i].imgSrc;
+
+                    localStorage.setItem("clickedTitle", clickedTitle);
+                    localStorage.setItem("clickedPrice", clickedPrice);
+                    localStorage.setItem("clickedDescription", clickedDescription);
+                    localStorage.setItem("clickedUseful", clickedUseful);
+                    localStorage.setItem("clickedImg", clickedImg);
+                }
             }
-        }
-        location.href = "productPage.html";
-    })
-});
+            location.href = "productPage.html";
+        })
+    });
+}
 
+openProductPage();
 
 
 
