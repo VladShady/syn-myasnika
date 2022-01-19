@@ -1306,6 +1306,11 @@ input[type="number"]::-webkit-inner-spin-button
         align-items: center
         margin-top: 32px
 
+        transition: background-color 0.2s linear
+
+        &:hover
+            background-color: $hover-red-btn
+
 .currency
     font-family: "HelveticaNeueCyrBold"
     font-style: italic
@@ -1402,6 +1407,219 @@ input[type="number"]::-webkit-inner-spin-button
         justify-content: space-between
         flex-wrap: wrap
         max-width: 1170px
+
+.cart
+    margin-top: 12px
+    margin-bottom: 121px
+
+    &__container
+        max-width: 1170px
+
+    &__block
+        padding: 60px 70px 72px 45px
+        background: $white
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25)
+        border-radius: 20px
+
+    &__item
+        display: flex
+        align-items: center
+        // justify-content: space-between
+        position: relative
+        padding: 50px 0
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.1)
+
+        &:first-child
+            padding-top: 0
+
+        &-main
+            display: flex
+
+        &-delete
+            cursor: pointer
+            transition: transform 0.5s ease
+            margin-right: 32px
+
+            &:hover
+                transform: rotate(90deg)
+
+        &-img
+            margin-right: 29px
+            border-radius: 10px
+            height: 245px
+            width: 270px
+
+        &-info
+            margin-top: 24px
+
+        &-title
+            font-size: 26px
+            font-family: "HelveticaNeueCyrMedium"
+            letter-spacing: 0.06em
+            color: $black
+            width: 260px
+
+            &::after
+                content: ""
+                width: 125px
+                height: 5px
+                background-color: $red
+                display: block
+                margin-top: 10px
+                border-radius: 30px
+
+        &-price
+            font-family: "HelveticaNeueCyrBold"
+            font-size: 32px
+            letter-spacing: 0.06em
+            color: $red
+            margin-top: 24px
+
+        &-sum
+            font-family: "HelveticaNeueCyrBold"
+            font-size: 26px
+            line-height: 26px
+            letter-spacing: 0.06em
+            color: $black
+            min-width: 160px
+            text-align: right
+
+        &-wrap
+            display: flex
+            align-items: center
+            width: 100%
+            justify-content: space-between
+
+    &__footer
+        display: flex
+        justify-content: space-between
+
+.sum-title
+    position: absolute
+    top: 0
+    right: 0
+    font-family: "HelveticaNeueCyr"
+    font-size: 24px
+    letter-spacing: 0.06em
+    color: $black
+    opacity: 0.7
+
+.v-counter
+    display: flex
+    align-items: center
+
+.count-wrap
+    margin: 0 20px
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.count
+    width: 68px
+    height: 68px
+    background: $white
+    border: 1px solid rgba(0, 0, 0, 0.5)
+    box-sizing: border-box
+    border-radius: 4px
+    font-family: "HelveticaNeueCyrMedium"
+    font-size: 30px
+    letter-spacing: 0.06em
+    color: $black
+    text-align: center
+    position: relative
+
+.kg
+    font-size: 18px
+    font-family: "HelveticaNeueCyrMedium"
+    font-style: italic
+    color: #262626
+    position: absolute
+    transform: translateY(70px)
+
+.minusBtn
+    background-color: $black
+    border: none
+    width: 20px
+    height: 2px
+
+.plusBtn
+    background-color: $black
+    border: none
+    width: 20px
+    height: 2px
+
+    &::after
+        content: ""
+        width: 20px
+        height: 2px
+        background-color: $black
+        display: block
+        transform: rotate(90deg)
+
+.continue-shopping
+    font-family: "HelveticaNeueCyrMedium"
+    font-size: 18px
+    letter-spacing: 0.06em
+    color: $white
+    background: #7F7F7F
+    border-radius: 12px
+    width: 270px
+    height: 50px
+
+.total
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 374px
+    height: 183px
+    background-color: #333333
+    padding: 10px 23px 43px 45px
+
+    &__info
+        display: flex
+        justify-content: space-between
+        font-family: "HelveticaNeueCyrMedium"
+        font-size: 26px
+        letter-spacing: 0.06em
+        color: $white
+        width: 100%
+        height: 40px
+
+    &__buy
+        background: $red
+        box-shadow: 0px 2px 7px rgba(232, 8, 6, 0.3)
+        border-radius: 12px
+        color: $white
+        font-family: "HelveticaNeueCyrMedium"
+        font-size: 18px
+        letter-spacing: 0.06em
+        width: 299px
+        height: 50px
+
+.also
+    &__container
+        max-width: 1170px
+
+    &__title
+        font-family: "HelveticaNeueCyrMedium"
+        font-size: 32px
+        letter-spacing: 0.06em
+        color: $black
+        margin-bottom: 56px
+
+        &::after
+            content: ""
+            width: 125px
+            height: 5px
+            background-color: $red
+            display: block
+            margin-top: 20px
+            border-radius: 30px
+
+    &__products
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
 
 //---------------Media-------------
 
@@ -1618,6 +1836,33 @@ input[type="number"]::-webkit-inner-spin-button
         &__img
             display: none
 
+    .cart
+        &__item
+            &-wrap
+                flex-wrap: wrap
+
+            &-main
+                min-width: 100%
+
+            &-img
+                margin-bottom: 20px
+
+            &-title
+                width: auto
+
+    .v-counter
+        transform: translateX(63px)
+
+    .sum-title
+        display: none
+
+    .total
+        margin-bottom: 20px
+        max-width: 340px
+
+        &__buy
+            max-width: 272px
+
 @media(max-width: 768px)
 
     .title__top
@@ -1665,6 +1910,26 @@ input[type="number"]::-webkit-inner-spin-button
     .more
         &__container
             justify-content: space-around
+
+    .cart
+        &__block
+            padding: 60px 40px 72px 40px
+
+        &__item
+            &-img
+                height: 190px
+                width: auto
+
+            &-price
+                font-size: 30px
+
+        &__footer
+            flex-wrap: wrap-reverse
+            flex-direction: column-reverse
+            justify-content: right
+
+    .v-counter
+        transform: translateX(32px)
 
 @media(max-width: 576px)
 
@@ -1753,3 +2018,79 @@ input[type="number"]::-webkit-inner-spin-button
 
         &__name
             height: auto
+
+    .cart
+        &__block
+            padding: 40px 26px 60px 15px
+
+        &__item
+            &-img
+                height: 75px
+                margin-right: 15px
+
+            &-info
+                margin-top: 0
+
+            &-title
+                font-size: 18px
+
+                &::after
+                    width: 110px
+                    margin-top: 5px
+
+            &-price
+                font-size: 16px
+
+            &-sum
+                font-size: 17px
+                min-width: 100px
+
+            &-delete
+                margin-right: 15px
+
+        .currency
+            font-size: 13px
+
+    .count
+        width: 45px
+        height: 45px
+        font-size: 20px
+
+        &-wrap
+            margin: 0 15px
+
+    .plusBtn
+        width: 15px
+
+        &::after
+            width: 15px
+
+    .minusBtn
+        width: 15px
+
+    .v-counter
+        transform: translateX(-10px)
+
+    .kg
+        transform: translateY(50px)
+        font-size: 15px
+
+    .total
+        width: 100%
+        padding: 10px 15px 40px 15px
+
+        &__buy
+            max-width: 100%
+
+        &__info
+            font-size: 22px
+
+    .continue-shopping
+        width: 100%
+
+    .also
+        &__title
+            font-size: 27px
+
+        &__products
+            justify-content: space-around

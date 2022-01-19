@@ -1,4 +1,4 @@
-let productsData = [
+const productsData = [
     {
         title: "Говядина",
         text: "Говя́дина или говяжье мясо — кулинарное наименование мяса крупного рогатого скота",
@@ -521,12 +521,25 @@ let productsData = [
     },
 ];
 
+window.onload = function () {
+    if (localStorage.getItem("hasCodeRunBefore") === null) {
+        let cartItems = [];
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        localStorage.setItem("hasCodeRunBefore", true);
+    }
+
+    $("#check").checked = false;
+}
+
 $("#check").on('click', function () {
     $(".header").toggleClass('show');
     $("body").toggleClass('no-scroll');
 });
 
 let clickedTitle, clickedPrice, clickedDescription, clickedUseful, clickedImg;
+let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+let storedCartItems;
+
 
 if (document.URL.includes("index.html")) {
     $(document).ready(function () {
@@ -548,10 +561,10 @@ if (document.URL.includes("index.html")) {
         productList.appendChild(itemElement);
     };
 
+    openProductPage();
+
     $("#show-more").one("click", function () {
-        // $(".products__list").append($(".product__block-wrap").html());
         $(".products__show-more").addClass("hide");
-        // $(".products__block:not(:first)").children().addClass("new-hide");
         const productList = document.getElementById("products-list");
 
         for (let i = 8; i < 16; i++) {
@@ -564,6 +577,7 @@ if (document.URL.includes("index.html")) {
         }
 
         openProductPage();
+        makeOrderWork();
     });
 
     $(".scroll-down").click(function () {
@@ -612,6 +626,32 @@ if (document.URL.includes("index.html")) {
     $(".anchor").on('click', function () {
         window.scrollTo(0, 0);
     });
+
+    function openProductPage() {
+        let currentItems = document.querySelectorAll(".products__item-img");
+        currentItems.forEach(el => {
+            el.addEventListener('click', function () {
+
+                for (let i = 0; i < productsData.length; i++) {
+                    if (onClick(el) === productsData[i].id) {
+                        clickedTitle = productsData[i].title;
+                        clickedPrice = productsData[i].price;
+                        clickedDescription = productsData[i].description;
+                        clickedUseful = productsData[i].useful;
+                        clickedImg = productsData[i].imgSrc;
+
+                        localStorage.setItem("clickedTitle", clickedTitle);
+                        localStorage.setItem("clickedPrice", clickedPrice);
+                        localStorage.setItem("clickedDescription", clickedDescription);
+                        localStorage.setItem("clickedUseful", clickedUseful);
+                        localStorage.setItem("clickedImg", clickedImg);
+                    }
+                }
+                location.href = "productPage.html";
+            })
+        });
+    }
+
 } else if (document.URL.includes("shop.html")) {
 
     const searchInput = document.getElementById("search-input");
@@ -650,10 +690,12 @@ if (document.URL.includes("index.html")) {
             let itemElement = document.createElement('div');
             itemElement.classList.add('products__item');
             itemElement.innerHTML = itemTemplate(paginatedItems, i);
-            itemElement.id = productsData[i].id;
+            itemElement.id = paginatedItems[i].id;
 
             wrapper.appendChild(itemElement);
         }
+        openProductPage();
+        makeOrderWork();
     }
 
     function SetupPagination(items, wrapper, rowsPerPage) {
@@ -1020,6 +1062,35 @@ if (document.URL.includes("index.html")) {
         resetFilter("sellType");
         resetFilter("production");
     });
+
+    function openProductPage() {
+        let currentItems = document.querySelectorAll(".products__item-img");
+        currentItems.forEach(el => {
+            el.addEventListener('click', function () {
+
+                for (let i = 0; i < productsData.length; i++) {
+                    if (onClick(el) === productsData[i].id) {
+                        clickedTitle = productsData[i].title;
+                        clickedPrice = productsData[i].price;
+                        clickedDescription = productsData[i].description;
+                        clickedUseful = productsData[i].useful;
+                        clickedImg = productsData[i].imgSrc;
+
+                        localStorage.setItem("clickedTitle", clickedTitle);
+                        localStorage.setItem("clickedPrice", clickedPrice);
+                        localStorage.setItem("clickedDescription", clickedDescription);
+                        localStorage.setItem("clickedUseful", clickedUseful);
+                        localStorage.setItem("clickedImg", clickedImg);
+                    }
+                }
+                resetFilter("kind");
+                resetFilter("sellType");
+                resetFilter("production");
+                location.href = "productPage.html";
+            })
+        });
+    }
+
 } else if (document.URL.includes("productPage.html")) {
     document.getElementById("product-title").innerText = localStorage.getItem("clickedTitle");
     document.getElementById("product-price").prepend(localStorage.getItem("clickedPrice"));
@@ -1037,6 +1108,75 @@ if (document.URL.includes("index.html")) {
 
         aditionalProducts.appendChild(itemElement);
     };
+
+    openProductPage();
+} else if (document.URL.includes("cart.html")) {
+
+    const recomendation = document.getElementById("recomendation");
+    document.querySelectorAll(".count").forEach(el => {
+        el.disabled = disabled;
+    })
+
+    for (let i = 0; i < 4; i++) {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('products__item');
+        itemElement.innerHTML = itemTemplate(productsData, i);
+        itemElement.id = productsData[i].id;
+
+        recomendation.appendChild(itemElement);
+    };
+
+    openProductPage();
+
+    let cartItemsContainer = document.getElementById("cart-items");
+    let currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
+
+    for (let i = 0; i < currentCartItems.length; i++) {
+        let cartItem = document.createElement('div');
+        cartItem.classList.add('cart__item');
+        cartItem.innerHTML = cartItemTemplate(currentCartItems, i);
+        cartItem.id = currentCartItems[i].id;
+
+        cartItemsContainer.prepend(cartItem);
+    };
+
+    let totalPrice = 0;
+    currCartElements = document.querySelectorAll(".cart__item");
+
+    for (let i = 0; i < currentCartItems.length; i++) {
+        totalPrice += parseInt(currCartElements[i].querySelector(".sum-text").innerText);
+        document.querySelector(".price-text").innerText = totalPrice;
+    }
+
+    const sumTitle = '<p class="sum-title">Сумма</p>';
+    $(".cart__item:first").append(sumTitle);
+
+    console.log(cartItems);
+
+    function deleteCartItem(event) {
+        let updatedCartItems = cartItems.filter(item => {
+            if (item.id != event.target.parentNode.id) {
+                return item;
+            }
+        })
+
+        const currItemPrice = event.target.parentNode.querySelector(".sum-text").innerText;
+
+        console.log(currItemPrice);
+
+        document.querySelector(".price-text").innerText -= currItemPrice;
+
+        console.log(updatedCartItems);
+
+        localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+        cartItems = updatedCartItems;
+
+        event.target.parentNode.remove()
+    }
+
+    document.querySelectorAll(".cart__item-delete").forEach(el => {
+        el.addEventListener('click', deleteCartItem);
+    });
 }
 
 function itemTemplate(arr, idOfItem) {
@@ -1056,18 +1196,13 @@ function itemTemplate(arr, idOfItem) {
 `
 }
 
-const onClick = function (el) {
-    return el.id;
-}
-
 function openProductPage() {
-
-
-    document.querySelectorAll(".products__item").forEach(el => {
+    let currentItems = document.querySelectorAll(".products__item-img");
+    currentItems.forEach(el => {
         el.addEventListener('click', function () {
 
             for (let i = 0; i < productsData.length; i++) {
-                if (onClick(el) == productsData[i].id) {
+                if (onClick(el) === productsData[i].id) {
                     clickedTitle = productsData[i].title;
                     clickedPrice = productsData[i].price;
                     clickedDescription = productsData[i].description;
@@ -1086,7 +1221,110 @@ function openProductPage() {
     });
 }
 
-openProductPage();
+function onClick(el) {
+    return el.parentNode.id;
+};
+
+let plusMinusWidgets = document.querySelectorAll(".v-counter");
+
+for (let i = 0; i < plusMinusWidgets.length; i++) {
+    plusMinusWidgets[i].querySelector(".minusBtn").addEventListener("click", returnInputValue);
+    plusMinusWidgets[i].querySelector(".plusBtn").addEventListener("click", returnInputValue);
+};
+
+function returnInputValue(event) {
+    let countEl = event.target.parentNode.querySelector(".count");
+
+    let priceOfCurrItem = event.target.parentNode.parentNode.querySelector(".cart__item-price").innerText;
+
+    let currTotal = parseInt(document.querySelector(".price-text").innerText);
+
+    if (event.target.className == "plusBtn") {
+        currTotal += parseInt(priceOfCurrItem);
+        countEl.value = Number(countEl.value) + 1;
+    } else {
+        if (Number(countEl.value) > 1) {
+            currTotal -= parseInt(priceOfCurrItem);
+            if (Number(countEl.value) > 1) {
+                countEl.value = Number(countEl.value) - 1;
+            }
+        }
+    }
+    event.target.parentNode.parentNode.querySelector(".sum-text").innerText = priceOfCurrItem * countEl.value;
+
+    document.querySelector(".price-text").innerText = currTotal;
+
+    return countEl.value;
+}
+
+function addToCart(productToAdd) {
+    cartItems.push(productToAdd);
+
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+};
+
+function doesIdExist(idOfItem) {
+    return cartItems.some(el => {
+        return el.id == idOfItem;
+    })
+}
+
+function makeOrderWork() {
+    document.querySelectorAll(".products__item-btn").forEach(el => {
+        el.addEventListener('click', () => {
+            for (let i = 0; i < productsData.length; i++) {
+                if (onClick(el.parentNode) == productsData[i].id) {
+                    console.log(doesIdExist(onClick(el.parentNode)));
+                    if (!doesIdExist(onClick(el.parentNode))) {
+                        addToCart(productsData[i]);
+                        console.log(storedCartItems);
+                    }
+                }
+            }
+        })
+    });
+}
+
+makeOrderWork();
+
+$(".shop-cart").on('click', function () {
+    location.href = "cart.html";
+});
+
+$(".shop-cart-text").on('click', function () {
+    location.href = "cart.html";
+});
+
+function cartItemTemplate(arr, idOfItem) {
+    return `
+    <img class="cart__item-delete" src="img.svg/delete.svg" />
+    <div class="cart__item-wrap">
+    <div class="cart__item-main">
+        <img class="cart__item-img" src="${arr[idOfItem].imgSrc}" />
+        <div class="cart__item-info">
+            <p class="cart__item-title">${arr[idOfItem].title}</p>
+            <p><span class="cart__item-price">${arr[idOfItem].price}</span> <span class="currency">руб./кг</span></p>
+        </div>
+    </div>
+
+    <div class="v-counter">
+        <a type="button" class="minusBtn"></a>
+        <div class="count-wrap">
+            <input type="number" size="2" value="1" class="count" id="input${idOfItem}" disabled="disabled" />
+            <span class="kg">кг</span>
+        </div>
+        <a type="button" class="plusBtn"></a>
+    </div>
+
+    <p class="cart__item-sum"><span class="sum-text">${arr[idOfItem].price}</span> руб</p>
+    </div>
+    `
+}
+
+
+
+
 
 
 
