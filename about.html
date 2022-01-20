@@ -43,47 +43,81 @@
                 </div>
             </header>
 
-            <div class="cart">
-                <div class="cart__container container">
-                    <a class="back-to-shop" href="shop.html">
+            <div class="about">
+                <div class="about__container container">
+                    <a class="back" href="index.html">
                         <img class="go-back" src="./img.svg/red-right-arrow.svg" alt="">
-                        Назад в магазин
+                        О компании
                     </a>
-                    <div class="cart__block" id="cart-items">
+                    <div class="about__wrapper">
+                        <img class="about__img" src="img.jpg/family.jpg" alt="">
+                        <div class="about__info">
+                            <p class="about__title">Почему <span class="bold">Сын Мясника?</span></p>
+                            <p class="about__text">
+                                Как все начиналось? Дедушка Сына Мясника - Демидов Иван Васильевич занимался
+                                выращиванием и
+                                продажей мяса на рынке во времена СССР.
+                                <br /><br />
+                                Дедушка передал свой опыт и знания своему зятю - Куршеву Михаилу Викторовичу - отцу Сына
+                                Мясника. Михаил Викторович со своей женой Куршевой Ольгой Ивановной продолжают дело отца
+                                до
+                                сих
+                                пор, создав мясную лавку известную на весь город, и за его пределы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="cart__footer">
-                            <button class="continue-shopping" type="button">Продолжить покупки</button>
+            <div class="mission">
+                <div class="mission__container container">
+                    <div class="mission__title">
+                        <p class="mission__title-text">Наша мисия</p>
+                        <span class="mission__title-line"></span>
+                    </div>
+                    <p class="mission__text">
+                        Почему мы выбрали название «<span class="bold">Сын Мясника</span>»?<br />
+                        Все просто и честно. Это семейное дело, когда опыт в мясном деле от отца передаётся к сыну. Ведь
+                        у
+                        Михаила Викторовича два сына - Серафим и Прохор, которые так же участвуют в развитии семейного
+                        дела.
+                        Отсюда мы и развиваемся под брендом «Сын Мясника».
+                        <br /> <br />
+                        Мы занимаемся продажей свежего мяса в ассортименте с 1991 года, набирая опыт, множество
+                        постоянных
+                        клиентов, проходя через всевозможные трудности, связанные с содержанием и реализацией животных,
+                        коррупцией власти с отсутствием поддержки малого бизнеса в России. Ведь жизнь нашего продукта от
+                        забоя до продажи равна максимум 3 суткам.
+                    </p>
+                </div>
+            </div>
 
-                            <div class="total">
-                                <div class="total__info">
-                                    <span class="total__text">Итого:</span>
-                                    <span class="total__price"><span class="price-text">0</span> <span>руб</span></span>
-                                </div>
+            <div class="fresh">
+                <div class="fresh__container container">
+                    <p class="fresh__title">Всегда свежий мясопродукт</p>
 
-                                <button class="total__buy" type="button">Оформить заказ</button>
+                    <div class="fresh__slider">
+                        <button class="prev-btn"></button>
+                        <div class="fresh__slider-content">
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
+                            </div>
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
+                            </div>
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
                             </div>
                         </div>
-
+                        <button class="next-btn"></button>
                     </div>
                 </div>
             </div>
 
-            <div class="also">
-                <div class="also__container container">
-                    <p class="also__title">Также рекомендуем</p>
-                    <div class="also__products" id="recomendation">
+            <div class="more">
+                <div class="more__container container" id="more-products">
 
-                    </div>
                 </div>
-            </div>
-
-            <div class="header__menu-icon">
-                <label class="burger__icon" for="check">
-                    <input type="checkbox" id="check" />
-                    <span class="burger-line red"></span>
-                    <span class="burger-line red"></span>
-                    <span class="burger-line red"></span>
-                </label>
             </div>
 
         </div>
@@ -178,8 +212,6 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/main.js"></script>
 </body>
