@@ -1899,6 +1899,33 @@ input[type="number"]::-webkit-inner-spin-button
         &__info
             width: 80%
 
+    .about
+        &__wrapper
+            flex-wrap: wrap
+            justify-content: center
+
+        &__img
+            max-width: 90%
+            height: auto
+            margin-bottom: 20px
+            margin-right: 0
+
+        &__title
+            text-align: center
+
+            &::after
+                margin: 19px auto 0
+
+        &__text
+            text-align: center
+
+    .fresh
+        &__slider .next-btn
+            right: 0
+
+        &__slider .prev-btn
+            left: 0
+
 @media(max-width: 992px)
 
     .products__list
@@ -1998,6 +2025,16 @@ input[type="number"]::-webkit-inner-spin-button
         &__buy
             max-width: 272px
 
+    .mission__title-line
+        max-width: 75%
+
+    .fresh
+        &__title
+            margin-bottom: 60px
+
+        &__slider .next-btn, .prev-btn
+            top: 46%
+
 @media(max-width: 768px)
 
     .title__top
@@ -2068,6 +2105,16 @@ input[type="number"]::-webkit-inner-spin-button
 
     .continue-shopping
         margin-top: 0
+
+    .fresh
+        &__slider .next-btn, .prev-btn
+            top: 42%
+
+    .mission__title-line
+        max-width: 67%
+
+    .back
+        margin-bottom: 40px
 
 @media(max-width: 576px)
 
@@ -2232,3 +2279,30 @@ input[type="number"]::-webkit-inner-spin-button
 
         &__products
             justify-content: space-around
+
+    .about
+        &__title
+            font-size: 22px
+
+        &__text
+            font-size: 16px
+
+    .mission
+        &__title
+            &-text
+                font-size: 22px
+
+            &-line
+                display: none
+
+        &__text
+            font-size: 16px
+
+    .fresh
+        &__title
+            font-size: 22px
+
+        &__slider .next-btn, .prev-btn
+            height: 40px
+            width: 40px
+            top: 40%
