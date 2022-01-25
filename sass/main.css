@@ -202,7 +202,6 @@ body.no-scroll {
 .logo__icon:hover {
   cursor: pointer;
 }
-
 .logo__title {
   font-family: "HelveticaNeueCyrBold";
   font-size: 18px;
@@ -260,29 +259,34 @@ body.no-scroll {
 .menu__item--footer:last-child {
   margin-right: 40px;
 }
-
-.show-cart-wrapper {
-  display: flex;
-}
-
-.shop-cart-text {
+.menu__item--footer::after {
   display: none;
 }
 
 .shop-cart {
   margin-right: 23px;
 }
+.shop-cart-wrapper {
+  display: flex;
+}
+.shop-cart-text {
+  display: none;
+}
 .shop-cart__btn {
   margin-right: 0;
   height: 17px;
   width: 17px;
   margin-left: 10px;
+  transition: filter 0.2s linear;
 }
 .shop-cart--icon {
   height: 64px;
   width: 64px;
   margin-right: 13px;
   margin-left: 0;
+}
+.shop-cart:hover {
+  cursor: pointer;
 }
 .shop-cart:hover {
   cursor: pointer;
@@ -627,10 +631,6 @@ body.no-scroll {
   letter-spacing: 0.06em;
 }
 
-.shop-cart__btn {
-  transition: filter 0.2s linear;
-}
-
 .footer {
   flex: 0 0 auto;
   background-color: #383838;
@@ -696,15 +696,6 @@ body.no-scroll {
 }
 .footer__location {
   filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.5));
-}
-
-.shop-cart-icon {
-  height: 64px;
-  width: 64px;
-  margin-right: 13px;
-}
-.shop-cart-icon:hover {
-  cursor: pointer;
 }
 
 .google__map {
@@ -1026,10 +1017,6 @@ input[type=checkbox]:checked ~ .burger-line:nth-of-type(3) {
   display: none;
 }
 
-.price__input-wrap:first-child {
-  margin-right: 17px;
-}
-
 .price__input {
   width: 85px;
   height: 21px;
@@ -1039,6 +1026,9 @@ input[type=checkbox]:checked ~ .burger-line:nth-of-type(3) {
   letter-spacing: 0.06em;
   color: #8B8B8B;
   margin-right: 3px;
+}
+.price__input-wrap:first-child {
+  margin-right: 17px;
 }
 
 .price__label {
@@ -2327,6 +2317,10 @@ input[type=number]::-webkit-inner-spin-button {
 
   .terms {
     margin-bottom: 120px;
+  }
+
+  .status {
+    display: none;
   }
 }
 @media (max-width: 992px) {

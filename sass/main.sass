@@ -67,13 +67,13 @@ body
     &__menu
         display: flex
 
-    &__menu-icon
-        position: absolute
-        top: 5px
-        right: 0px
-        display: none
-        cursor: pointer
-        transform: scale(0.6)
+        &-icon
+            position: absolute
+            top: 5px
+            right: 0px
+            display: none
+            cursor: pointer
+            transform: scale(0.6)
 
 .menu__bar1, .menu__bar2, .menu__bar3
     width: 35px
@@ -86,23 +86,34 @@ body
 .menu__bar2
     width: 17px
 
-.logo__icon
-    padding-top: 7px
-    height: 75px
-    width: 75px
+.logo
+    &__icon
+        padding-top: 7px
+        height: 75px
+        width: 75px
 
-    &:hover
-        cursor: pointer
+        &:hover
+            cursor: pointer
 
-.logo__title
-    font-family: "HelveticaNeueCyrBold"
-    font-size: 18px
-    text-transform: uppercase
-    color: $white
-    letter-spacing: 0.06em
+    &__title
+        font-family: "HelveticaNeueCyrBold"
+        font-size: 18px
+        text-transform: uppercase
+        color: $white
+        letter-spacing: 0.06em
 
-    &:hover
-        cursor: pointer
+        &:hover
+            cursor: pointer
+
+// .logo__title
+//     font-family: "HelveticaNeueCyrBold"
+//     font-size: 18px
+//     text-transform: uppercase
+//     color: $white
+//     letter-spacing: 0.06em
+
+//     &:hover
+//         cursor: pointer
 
 .menu__item
     font-family: "HelveticaNeueCyrMedium"
@@ -153,26 +164,44 @@ body
         &:last-child
             margin-right: 40px
 
-.show-cart-wrapper
-    display: flex
+        &::after
+            display: none
 
-.shop-cart-text
-    display: none
+// .shop-cart-wrapper
+//     display: flex
+
+// .shop-cart-text
+//     display: none
 
 .shop-cart
     margin-right: 23px
+
+    &-wrapper
+        display: flex
+
+    &-text
+        display: none
 
     &__btn
         margin-right: 0
         height: 17px
         width: 17px
         margin-left: 10px
+        transition: filter 0.2s linear
 
     &--icon
         height: 64px
         width: 64px
         margin-right: 13px
         margin-left: 0
+
+    // &-icon
+    //     height: 64px
+    //     width: 64px
+    //     margin-right: 13px
+
+    &:hover
+        cursor: pointer
 
     &:hover
         cursor: pointer
@@ -329,16 +358,27 @@ body
             box-shadow: 0px 4px 20px rgba(205, 2, 0, 0.7)
             cursor: pointer
 
-    &__item-img
-        height: 115px
-        margin: 0 auto
+        &-img
+            height: 115px
+            margin: 0 auto
 
-    &__item-name
-        font-family: "HelveticaNeueCyrBold"
-        font-size: 36px
-        text-transform: uppercase
-        color: $dark-red
-        line-height: 1
+        &-name
+            font-family: "HelveticaNeueCyrBold"
+            font-size: 36px
+            text-transform: uppercase
+            color: $dark-red
+            line-height: 1
+
+    // &__item-img
+    //     height: 115px
+    //     margin: 0 auto
+
+    // &__item-name
+    //     font-family: "HelveticaNeueCyrBold"
+    //     font-size: 36px
+    //     text-transform: uppercase
+    //     color: $dark-red
+    //     line-height: 1
 
     &__title
         font-family: "HelveticaNeueCyrMedium"
@@ -402,79 +442,153 @@ body
             .new-marker
                 display: none
 
-    &__item-img
-        height: 245px
-        width: 270px
-        cursor: pointer
+        &-img
+            height: 245px
+            width: 270px
+            cursor: pointer
 
-    &__item-name
-        font-family: "HelveticaNeueCyrMedium"
-        font-size: 18px
-        color: $black
-        letter-spacing: 0.1em
-        margin: 15px 0 10px
-        text-align: center
+        &-name
+            font-family: "HelveticaNeueCyrMedium"
+            font-size: 18px
+            color: $black
+            letter-spacing: 0.1em
+            margin: 15px 0 10px
+            text-align: center
 
-    &__item-text
-        font-family: "HelveticaNeueCyr"
-        font-size: 14px
-        color: $grey
-        padding: 0 17px
-        letter-spacing: 0.06em
-        text-align: center
+        &-text
+            font-family: "HelveticaNeueCyr"
+            font-size: 14px
+            color: $grey
+            padding: 0 17px
+            letter-spacing: 0.06em
+            text-align: center
 
-    &__item-order
-        position: inherit
-        display: flex
-        justify-content: space-between
-        bottom: -10px
-        max-width: 236px
-        height: 42px
-        margin: 0 auto
-        border: 1px solid #E5E5E5
-        background-color: $white
-        box-sizing: border-box
-        align-items: center
-        border-radius: 4px
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25)
+        &-order
+            position: inherit
+            display: flex
+            justify-content: space-between
+            bottom: -10px
+            max-width: 236px
+            height: 42px
+            margin: 0 auto
+            border: 1px solid #E5E5E5
+            background-color: $white
+            box-sizing: border-box
+            align-items: center
+            border-radius: 4px
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25)
 
-    &__item-price
-        font-family: 'HelveticaNeueCyr'
-        font-size: 18px
-        width: 87px
-        height: 100%
-        display: flex
-        justify-content: center
-        align-items: center
-        color: $red
-        box-sizing: border-box
-        border-radius: 4px 0px 0px 4px
-        border: 1px solid #E5E5E5
+        &-price
+            font-family: 'HelveticaNeueCyr'
+            font-size: 18px
+            width: 87px
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            color: $red
+            box-sizing: border-box
+            border-radius: 4px 0px 0px 4px
+            border: 1px solid #E5E5E5
 
-    &__item-btn
-        font-family: 'HelveticaNeueCyr'
-        font-size: 18px
-        width: 149px
-        height: 100%
-        display: flex
-        justify-content: center
-        align-items: center
-        background-color: $white
-        color: $red
-        border-radius: 0px 4px 4px 0px
-        border: 1px solid #E5E5E5
-        box-sizing: border-box
-        letter-spacing: 0.06em
+        &-btn
+            font-family: 'HelveticaNeueCyr'
+            font-size: 18px
+            width: 149px
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            background-color: $white
+            color: $red
+            border-radius: 0px 4px 4px 0px
+            border: 1px solid #E5E5E5
+            box-sizing: border-box
+            letter-spacing: 0.06em
 
-        transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear
+            transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear
 
-        &:hover
-            background-color: #E80806
-            color: $white
-            border-color: $red
+            &:hover
+                background-color: #E80806
+                color: $white
+                border-color: $red
 
-            .shop-cart__btn
-                filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(199deg) brightness(107%) contrast(102%)
+                .shop-cart__btn
+                    filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(199deg) brightness(107%) contrast(102%)
+
+    // &__item-img
+    //     height: 245px
+    //     width: 270px
+    //     cursor: pointer
+
+    // &__item-name
+    //     font-family: "HelveticaNeueCyrMedium"
+    //     font-size: 18px
+    //     color: $black
+    //     letter-spacing: 0.1em
+    //     margin: 15px 0 10px
+    //     text-align: center
+
+    // &__item-text
+    //     font-family: "HelveticaNeueCyr"
+    //     font-size: 14px
+    //     color: $grey
+    //     padding: 0 17px
+    //     letter-spacing: 0.06em
+    //     text-align: center
+
+    // &__item-order
+    //     position: inherit
+    //     display: flex
+    //     justify-content: space-between
+    //     bottom: -10px
+    //     max-width: 236px
+    //     height: 42px
+    //     margin: 0 auto
+    //     border: 1px solid #E5E5E5
+    //     background-color: $white
+    //     box-sizing: border-box
+    //     align-items: center
+    //     border-radius: 4px
+    //     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25)
+
+    // &__item-price
+    //     font-family: 'HelveticaNeueCyr'
+    //     font-size: 18px
+    //     width: 87px
+    //     height: 100%
+    //     display: flex
+    //     justify-content: center
+    //     align-items: center
+    //     color: $red
+    //     box-sizing: border-box
+    //     border-radius: 4px 0px 0px 4px
+    //     border: 1px solid #E5E5E5
+
+    // &__item-btn
+    //     font-family: 'HelveticaNeueCyr'
+    //     font-size: 18px
+    //     width: 149px
+    //     height: 100%
+    //     display: flex
+    //     justify-content: center
+    //     align-items: center
+    //     background-color: $white
+    //     color: $red
+    //     border-radius: 0px 4px 4px 0px
+    //     border: 1px solid #E5E5E5
+    //     box-sizing: border-box
+    //     letter-spacing: 0.06em
+
+    //     transition: background-color 0.2s linear, color 0.2s linear, border-color 0.2s linear
+
+    //     &:hover
+    //         background-color: #E80806
+    //         color: $white
+    //         border-color: $red
+
+    //         .shop-cart__btn
+    //             filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(199deg) brightness(107%) contrast(102%)
 
     &__show-more
         font-family: "HelveticaNeueCyrMedium"
@@ -511,8 +625,8 @@ body
     font-family: "HelveticaNeueCyrMedium"
     letter-spacing: 0.06em
 
-.shop-cart__btn
-    transition: filter 0.2s linear
+// .shop-cart__btn
+//     transition: filter 0.2s linear
 
 .footer
     flex: 0 0 auto
@@ -581,13 +695,13 @@ body
     &__location
         filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5))
 
-.shop-cart-icon
-    height: 64px
-    width: 64px
-    margin-right: 13px
+// .shop-cart-icon
+//     height: 64px
+//     width: 64px
+//     margin-right: 13px
 
-    &:hover
-        cursor: pointer
+//     &:hover
+//         cursor: pointer
 
 .google__map
     width: 670px
@@ -881,9 +995,9 @@ input[type="checkbox"]:checked ~ .burger-line:nth-of-type(3)
     &.hide
         display: none
 
-.price__input-wrap
-    &:first-child
-        margin-right: 17px
+// .price__input-wrap
+//     &:first-child
+//         margin-right: 17px
 
 .price__input
     width: 85px
@@ -894,6 +1008,10 @@ input[type="checkbox"]:checked ~ .burger-line:nth-of-type(3)
     letter-spacing: 0.06em
     color: #8B8B8B
     margin-right: 3px
+
+    &-wrap
+        &:first-child
+            margin-right: 17px
 
 .price__label
     color: $red
@@ -908,7 +1026,7 @@ input[type="checkbox"]:checked ~ .burger-line:nth-of-type(3)
     margin-top: 23px
     margin-bottom: 39px
 
-    & .progress
+    .progress
         height: 100%
         left: 0%
         right: 0%
@@ -919,7 +1037,7 @@ input[type="checkbox"]:checked ~ .burger-line:nth-of-type(3)
 .range__input
     position: relative
 
-    & input
+    input
         position: absolute
         min-width: 215px
         height: 4px
@@ -2147,6 +2265,9 @@ input[type="number"]::-webkit-inner-spin-button
 
     .terms
         margin-bottom: 120px
+
+    .status
+        display: none
 
 @media(max-width: 992px)
 
