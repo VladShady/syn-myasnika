@@ -22,15 +22,19 @@
                         </div>
                         <div class="header__navbar">
                             <ul class="header__menu">
-                                <li class="menu__item">
+                                <li class="menu__item mainPage">
                                     <a class="menu__item-link" href="./index.html">Главная</a>
                                 </li>
-                                <li class="menu__item">
+                                <li class="menu__item shopPage">
                                     <a class="menu__item-link" href="./shop.html">Мясная лавка</a>
                                 </li>
-                                <li class="menu__item">Доставка</li>
-                                <li class="menu__item">О компании</li>
-                                <li class="menu__item">Отзывы</li>
+                                <li class="menu__item deliveryPage">
+                                    <a class="menu__item-link" href="./delivery.html">Доставка</a>
+                                </li>
+                                <li class="menu__item aboutPage">
+                                    <a class="menu__item-link" href="./about.html">О компании</a>
+                                </li>
+                                <li class="menu__item reviewsPage" id="reviews">Отзывы</li>
                             </ul>
                             <div class="shop-cart-wrapper">
                                 <span class="shop-cart-text">Корзина</span>
@@ -173,6 +177,9 @@
                     </div>
 
                     <div class="categories">
+                        <div class="status status--shop">
+
+                        </div>
                         <div class="header__menu-icon">
                             <label class="burger__icon" for="check">
                                 <input type="checkbox" id="check" />
@@ -228,27 +235,25 @@
                     </div>
                     <div class="header__navbar">
                         <ul class="header__menu">
-                            <li class="menu__item">
+                            <li class="menu__item mainPage">
                                 <a class="menu__item-link" href="./index.html">Главная</a>
                             </li>
-                            <li class="menu__item">
+                            <li class="menu__item shopPage">
                                 <a class="menu__item-link" href="./shop.html">Мясная лавка</a>
                             </li>
-                            <li class="menu__item">Доставка</li>
-                            <li class="menu__item">О компании</li>
-                            <li class="menu__item menu__item--footer">Отзывы</li>
+                            <li class="menu__item deliveryPage">
+                                <a class="menu__item-link" href="./delivery.html">Доставка</a>
+                            </li>
+                            <li class="menu__item aboutPage">
+                                <a class="menu__item-link" href="./about.html">О компании</a>
+                            </li>
+                            <li class="menu__item reviewsPage" id="reviews">Отзывы</li>
                         </ul>
                         <div class="reg">
                             <img class="reg__icon" src="img.svg/reg-icon.svg" alt="">
                             <span class="reg__text">Вход / Регистрация</span>
                         </div>
                     </div>
-
-                    <!-- <div class="header__menu-icon">
-                        <div class="menu__bar1"></div>
-                        <div class="menu__bar2"></div>
-                        <div class="menu__bar3"></div>
-                    </div> -->
                 </div>
             </header>
 
@@ -256,7 +261,7 @@
                 <div class="footer__container container">
                     <div class="footer__content">
                         <div class="footer__shop-cart">
-                            <img class="shop-cart-icon" src="img.svg/shopping-cart.svg" alt="">
+                            <img class="shop-cart shop-cart--icon" src="img.svg/shopping-cart.svg" alt="">
                             <span>Корзина</span>
                         </div>
                         <div class="footer__location">

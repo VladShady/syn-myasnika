@@ -86,15 +86,6 @@ body
 .menu__bar2
     width: 17px
 
-.change1
-    transform: rotate(-45deg) translate(-8px, 4px)
-
-.change2
-    opacity: 0
-
-.change3
-    transform: rotate(45deg) translate(-11px, -8px)
-
 .logo__icon
     padding-top: 7px
     height: 75px
@@ -125,10 +116,10 @@ body
         .menu__item-link
             color: $red
 
-        // &::after
-        //     width: 70%
-        //     background: $red
-        //     border-radius: 10px
+        &::after
+            width: 70%
+            background: $red
+            border-radius: 10px
 
     &::after
         content: ''
@@ -146,14 +137,14 @@ body
             background: $red
             border-radius: 10px
 
+        .menu__item-link
+            color: $red
+
     &-link
         text-decoration: none
         color: $white
 
         transition: color 0.2s linear
-
-        &:hover
-            color: $red
 
     &:last-child
         margin-right: 16px
@@ -177,6 +168,12 @@ body
         width: 17px
         margin-left: 10px
 
+    &--icon
+        height: 64px
+        width: 64px
+        margin-right: 13px
+        margin-left: 0
+
     &:hover
         cursor: pointer
 
@@ -196,6 +193,40 @@ body
         font-family: "HelveticaNeueCyrBold"
         letter-spacing: 0.06em
         color: $white
+
+.status
+    position: relative
+    z-index: 10000
+    display: flex
+
+    &--shop
+        top: -60px
+        left: -30px
+
+        .status__item
+            &:first-child
+                width: 160px
+
+    &__item
+        font-family: "HelveticaNeueCyr"
+        font-size: 15px
+        letter-spacing: 0.06em
+        background: #FFFFFF
+        border: 1px solid rgba(0, 0, 0, 0.05)
+        box-sizing: border-box
+        box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.25)
+        border-radius: 0px 50px 50px 0px
+        text-align: center
+        width: 160px
+        cursor: pointer
+
+        &:first-child
+            width: 260px
+            z-index: 1000
+
+        &:last-child
+            background-color: $red
+            color: $white
 
 .intro
     background: url("../img.jpg/header-bg.jpg") center no-repeat
@@ -357,11 +388,6 @@ body
         display: flex
         justify-content: space-between
         flex-wrap: wrap
-
-    // &__block
-    //     display: flex
-    //     justify-content: space-between
-    //     flex-wrap: wrap
 
     &__item
         position: relative
@@ -835,7 +861,6 @@ input[type="checkbox"]:checked ~ .burger-line:nth-of-type(3)
 
     &__name
         display: flex
-        // width: 100%
         font-size: 16px
         font-family: "HelveticaNeueCyrMedium"
         letter-spacing: 0.06em
@@ -1133,7 +1158,6 @@ input[type="number"]::-webkit-inner-spin-button
     margin-top: 35px
     width: 100%
     display: flex
-    // flex-wrap: wrap
     align-items: center
     margin-bottom: 23px
 
@@ -1420,11 +1444,11 @@ input[type="number"]::-webkit-inner-spin-button
         background: $white
         box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25)
         border-radius: 20px
+        position: relative
 
     &__item
         display: flex
         align-items: center
-        // justify-content: space-between
         position: relative
         padding: 50px 0
         border-bottom: 1px dashed rgba(0, 0, 0, 0.1)
@@ -1496,8 +1520,8 @@ input[type="number"]::-webkit-inner-spin-button
 
 .sum-title
     position: absolute
-    top: 0
-    right: 0
+    top: 61px
+    right: 70px
     font-family: "HelveticaNeueCyr"
     font-size: 24px
     letter-spacing: 0.06em
@@ -1567,6 +1591,11 @@ input[type="number"]::-webkit-inner-spin-button
     height: 50px
     margin-top: 94px
 
+    transition: background-color 0.2s linear
+
+    &:hover
+        background-color: $dark-grey
+
 .total
     display: flex
     flex-direction: column
@@ -1596,6 +1625,11 @@ input[type="number"]::-webkit-inner-spin-button
         letter-spacing: 0.06em
         width: 299px
         height: 50px
+
+        transition: background-color 0.2s linear
+
+        &:hover
+            background-color: $hover-red-btn
 
 .also
     &__container
@@ -1755,6 +1789,171 @@ input[type="number"]::-webkit-inner-spin-button
 
         .next-btn
             right: 33px
+
+.delivery
+    margin-top: 12px
+    margin-bottom: 66px
+
+    &__container
+        max-width: 1170px
+
+    &__description
+        display: flex
+        align-items: center
+
+    &__img
+        min-width: 600px
+        min-height: 500px
+        background: $white
+        box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25)
+        border-radius: 20px
+        overflow: hidden
+        z-index: 100
+
+    &__info
+        background: #F5F5F5
+        border-radius: 0 20px 20px 0
+        height: 444px
+        padding: 54px
+
+    &__title
+        font-family: "HelveticaNeueCyrMedium"
+        font-size: 28px
+        letter-spacing: 0.06em
+        color: $black
+        margin-bottom: 35px
+
+        .bold
+            font-family: "HelveticaNeueCyrBold"
+            color: $black
+
+        &::after
+            content: ""
+            width: 94px
+            height: 5px
+            background-color: $red
+            display: block
+            margin-top: 19px
+            border-radius: 30px
+
+    &__text
+        font-family: "HelveticaNeueCyr"
+        font-size: 18px
+        letter-spacing: 0.04em
+        line-height: 26px
+        color: $dark-grey
+
+.conditions
+    margin-bottom: 125px
+
+    &__container
+        max-width: 1170px
+
+    &__title
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 25px
+
+        &-text
+            font-family: "HelveticaNeueCyrMedium"
+            font-size: 24px
+            letter-spacing: 0.06em
+            color: $black
+
+        &-line
+            content: ""
+            background-color: #E0E0E0
+            width: 78%
+            height: 1px
+
+    &__text
+        font-family: "HelveticaNeueCyr"
+        font-size: 20px
+        letter-spacing: 0.03em
+        color: $black
+
+        .bold
+            font-family: "HelveticaNeueCyrMedium"
+            color: $black
+
+.geography
+    margin-bottom: 82px
+
+    &__container
+        max-width: 1170px
+        display: flex
+        align-items: center
+
+    &__info
+        background: #F5F5F5
+        border-radius: 20px 0 0 20px
+        height: 444px
+        padding: 101px 65px 100px 75px
+
+    &__img
+        min-width: 570px
+        max-height: 500px
+        border-radius: 20px
+        overflow: hidden
+        filter: drop-shadow(10px 10px 50px rgba(0, 0, 0, 0.08))
+        z-index: 100
+
+    &__map
+        transform: scale(1.1)
+
+    &__title
+        font-family: "HelveticaNeueCyrMedium"
+        font-size: 28px
+        letter-spacing: 0.06em
+        color: $black
+        margin-bottom: 38px
+
+        &::after
+            content: ""
+            width: 94px
+            height: 5px
+            background-color: $red
+            display: block
+            margin-top: 19px
+            border-radius: 30px
+
+    &__text
+        font-family: "HelveticaNeueCyr"
+        font-size: 18px
+        line-height: 26px
+        letter-spacing: 0.02em
+        color: $dark-grey
+
+.terms
+    margin-bottom: 180px
+
+    &__container
+        max-width: 1170px
+
+    &__title
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 30px
+
+        &-text
+            font-family: "HelveticaNeueCyrMedium"
+            font-size: 24px
+            letter-spacing: 0.06em
+            color: $black
+
+        &-line
+            content: ""
+            background-color: #E0E0E0
+            width: 75%
+            height: 1px
+
+    &__text
+        font-family: "HelveticaNeueCyr"
+        font-size: 20px
+        letter-spacing: 0.04em
+        color: $black
 
 //---------------Media-------------
 
@@ -1926,6 +2125,29 @@ input[type="number"]::-webkit-inner-spin-button
         &__slider .prev-btn
             left: 0
 
+        &__title
+            margin-bottom: 90px
+
+    .delivery
+        &__img
+            display: none
+
+        &__info
+            height: auto
+            border-radius: 20px
+
+    .conditions
+        &__title
+            &-line
+                max-width: 73%
+
+    .geography
+        &__info
+            padding: 54px 65px 50px 75px
+
+    .terms
+        margin-bottom: 120px
+
 @media(max-width: 992px)
 
     .products__list
@@ -2035,6 +2257,25 @@ input[type="number"]::-webkit-inner-spin-button
         &__slider .next-btn, .prev-btn
             top: 46%
 
+    .conditions
+        &__title
+            &-line
+                max-width: 65%
+
+    .geography
+        &__img
+            display: none
+
+        &__info
+            height: auto
+            border-radius: 20px
+            padding: 54px
+
+    .terms
+        &__title
+            &-line
+                width: 68%
+
 @media(max-width: 768px)
 
     .title__top
@@ -2115,6 +2356,16 @@ input[type="number"]::-webkit-inner-spin-button
 
     .back
         margin-bottom: 40px
+
+    .conditions
+        &__title
+            &-line
+                max-width: 55%
+
+    .terms
+        &__title
+            &-line
+                max-width: 57%
 
 @media(max-width: 576px)
 
@@ -2299,6 +2550,8 @@ input[type="number"]::-webkit-inner-spin-button
             font-size: 16px
 
     .fresh
+        margin-bottom: 80px
+
         &__title
             font-size: 22px
 
@@ -2306,3 +2559,47 @@ input[type="number"]::-webkit-inner-spin-button
             height: 40px
             width: 40px
             top: 40%
+
+    .delivery
+        &__title
+            font-size: 22px
+
+        &__info
+            padding: 25px
+
+        &__text
+            font-size: 16px
+
+    .conditions
+        margin-bottom: 80px
+
+        &__title
+            &-line
+                display: none
+
+        &__text
+            font-size: 16px
+
+    .geography
+        margin-bottom: 80px
+
+        &__info
+            padding: 25px
+
+        &__title
+            font-size: 22px
+
+        &__text
+            font-size: 16px
+
+    .terms
+        margin-bottom: 80px
+
+        &__title
+            font-size: 22px
+
+            &-line
+                display: none
+
+        &__text
+            font-size: 16px

@@ -524,22 +524,78 @@ const productsData = [
 window.onload = function () {
     if (localStorage.getItem("hasCodeRunBefore") === null) {
         let cartItems = [];
+        let statusPages = [];
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        localStorage.setItem("statusPages", JSON.stringify(statusPages));
         localStorage.setItem("hasCodeRunBefore", true);
     }
 
     $("#check").checked = false;
+
+    findCurrentPage("index.html", "mainPage");
+    findCurrentPage("shop.html", "shopPage");
+    findCurrentPage("delivery.html", "deliveryPage");
+    findCurrentPage("about.html", "aboutPage");
+}
+
+let clickedTitle, clickedPrice, clickedDescription, clickedUseful, clickedImg;
+let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+let storedCartItems;
+let statusPages = JSON.parse(localStorage.getItem("statusPages"));
+
+function addPageToStatusPages(url, elementToPush) {
+    let found = false;
+    for (let i = 0; i < statusPages.length; i++) {
+        if (statusPages[i].name == elementToPush.name) {
+            found = true;
+            break;
+        }
+    }
+
+    if (document.URL.includes(url) && !found) {
+        statusPages.push(elementToPush);
+        localStorage.setItem("statusPages", JSON.stringify(statusPages));
+    } else if (found) {
+        let indexOfEl = statusPages.findIndex(currentValue => currentValue.name == elementToPush.name);
+
+        statusPages.length = indexOfEl + 1;
+
+        localStorage.setItem("statusPages", JSON.stringify(statusPages));
+    }
+}
+
+function displayStatusPages() {
+    let zIndex = 1000;
+    let translateX = 0;
+    for (let i = 0; i < statusPages.length; i++) {
+        const statusDiv = document.querySelector(".status");
+        const statusItem = document.createElement('div');
+        statusItem.classList.add('status__item');
+        statusItem.innerHTML = statusPages[i].name;
+        statusItem.setAttribute("style", `z-index: ${zIndex}; transform: translateX(${translateX}px);`);
+        statusItem.addEventListener("click", function () {
+            location.href = statusPages[i].link;
+        })
+
+        statusDiv.appendChild(statusItem);
+
+        zIndex -= 1;
+        translateX -= 10;
+    }
+}
+
+function findCurrentPage(url, classNameToFind) {
+    if (document.URL.includes(`${url}`)) {
+        document.querySelectorAll(`.${classNameToFind}`).forEach(el => {
+            el.classList.add("active");
+        });
+    }
 }
 
 $("#check").on('click', function () {
     $(".header").toggleClass('show');
     $("body").toggleClass('no-scroll');
 });
-
-let clickedTitle, clickedPrice, clickedDescription, clickedUseful, clickedImg;
-let cartItems = JSON.parse(localStorage.getItem("cartItems"));
-let storedCartItems;
-
 
 if (document.URL.includes("index.html")) {
     $(document).ready(function () {
@@ -549,6 +605,8 @@ if (document.URL.includes("index.html")) {
             draggable: false,
         });
     });
+
+    addPageToStatusPages("index.html", { name: "Главная", link: "index.html" });
 
     const productList = document.getElementById("products-list");
 
@@ -627,32 +685,9 @@ if (document.URL.includes("index.html")) {
         window.scrollTo(0, 0);
     });
 
-    // function openProductPage() {
-    //     let currentItems = document.querySelectorAll(".products__item-img");
-    //     currentItems.forEach(el => {
-    //         el.addEventListener('click', function () {
-
-    //             for (let i = 0; i < productsData.length; i++) {
-    //                 if (onClick(el) === productsData[i].id) {
-    //                     clickedTitle = productsData[i].title;
-    //                     clickedPrice = productsData[i].price;
-    //                     clickedDescription = productsData[i].description;
-    //                     clickedUseful = productsData[i].useful;
-    //                     clickedImg = productsData[i].imgSrc;
-
-    //                     localStorage.setItem("clickedTitle", clickedTitle);
-    //                     localStorage.setItem("clickedPrice", clickedPrice);
-    //                     localStorage.setItem("clickedDescription", clickedDescription);
-    //                     localStorage.setItem("clickedUseful", clickedUseful);
-    //                     localStorage.setItem("clickedImg", clickedImg);
-    //                 }
-    //             }
-    //             location.href = "productPage.html";
-    //         })
-    //     });
-    // }
-
 } else if (document.URL.includes("shop.html")) {
+    addPageToStatusPages("shop.html", { name: "Мясная лавка", link: "shop.html" });
+    displayStatusPages();
 
     const searchInput = document.getElementById("search-input");
 
@@ -1081,6 +1116,9 @@ if (document.URL.includes("index.html")) {
                         localStorage.setItem("clickedDescription", clickedDescription);
                         localStorage.setItem("clickedUseful", clickedUseful);
                         localStorage.setItem("clickedImg", clickedImg);
+
+                        localStorage.setItem("openedProduct", JSON.stringify(productsData[i]));
+
                     }
                 }
                 resetFilter("kind");
@@ -1092,6 +1130,8 @@ if (document.URL.includes("index.html")) {
     }
 
 } else if (document.URL.includes("productPage.html")) {
+    displayStatusPages();
+
     document.getElementById("product-title").innerText = localStorage.getItem("clickedTitle");
     document.getElementById("product-price").prepend(localStorage.getItem("clickedPrice"));
     document.getElementById("product-description").innerText = localStorage.getItem("clickedDescription");
@@ -1109,8 +1149,22 @@ if (document.URL.includes("index.html")) {
         aditionalProducts.appendChild(itemElement);
     };
 
+    document.querySelector(".product__btn").addEventListener("click", () => {
+        let openedProduct = JSON.parse(localStorage.getItem("openedProduct"));
+
+        for (let i = 0; i < productsData.length; i++) {
+            if (openedProduct.id == productsData[i].id) {
+                if (!doesIdExist(openedProduct.id)) {
+                    addToCart(productsData[i]);
+                }
+            }
+        }
+    });
+
     openProductPage();
 } else if (document.URL.includes("cart.html")) {
+    addPageToStatusPages("cart.html", { name: "Корзина", link: "cart.html" });
+    displayStatusPages();
 
     const recomendation = document.getElementById("recomendation");
     document.querySelectorAll(".count").forEach(el => {
@@ -1148,10 +1202,8 @@ if (document.URL.includes("index.html")) {
         document.querySelector(".price-text").innerText = totalPrice;
     }
 
-    const sumTitle = '<p class="sum-title">Сумма</p>';
-    $(".cart__item:first").append(sumTitle);
-
-    console.log(cartItems);
+    // const sumTitle = '<p class="sum-title">Сумма</p>';
+    // $(".cart__item:first").append(sumTitle);
 
     function deleteCartItem(event) {
         let updatedCartItems = cartItems.filter(item => {
@@ -1162,11 +1214,7 @@ if (document.URL.includes("index.html")) {
 
         const currItemPrice = event.target.parentNode.querySelector(".sum-text").innerText;
 
-        console.log(currItemPrice);
-
         document.querySelector(".price-text").innerText -= currItemPrice;
-
-        console.log(updatedCartItems);
 
         localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
         cartItems = updatedCartItems;
@@ -1176,7 +1224,16 @@ if (document.URL.includes("index.html")) {
 
     document.querySelectorAll(".cart__item-delete").forEach(el => {
         el.addEventListener('click', deleteCartItem);
+        el.addEventListener('click', () => {
+            if (!document.querySelector(".cart__item")) {
+                document.querySelector(".sum-title").setAttribute("style", "display: none");
+            }
+        })
     });
+
+    if (!document.querySelector(".cart__item")) {
+        document.querySelector(".sum-title").setAttribute("style", "display: none");
+    }
 } else if (document.URL.includes("about.html")) {
     $('.fresh__slider-content').slick({
         dots: false,
@@ -1188,6 +1245,9 @@ if (document.URL.includes("index.html")) {
         nextArrow: $('.next-btn'),
         draggable: false,
     });
+
+    addPageToStatusPages("about.html", { name: "О компании", link: "about.html" });
+    displayStatusPages();
 
     const prevBtn = document.querySelector(".prev-btn");
     const nextBtn = document.querySelector(".next-btn");
@@ -1207,6 +1267,26 @@ if (document.URL.includes("index.html")) {
     };
 
     openProductPage();
+} else if (document.URL.includes("delivery.html")) {
+    $('.fresh__slider-content').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        prevArrow: $('.prev-btn'),
+        nextArrow: $('.next-btn'),
+        draggable: false,
+    });
+
+    addPageToStatusPages("delivery.html", { name: "Доставка", link: "delivery.html" });
+    displayStatusPages();
+
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    prevBtn.innerHTML = `<img src="img.svg/pagination-arrow.svg" alt="">`;
+    nextBtn.innerHTML = `<img src="img.svg/pagination-arrow.svg" alt="">`;
 }
 
 function itemTemplate(arr, idOfItem) {
@@ -1244,8 +1324,12 @@ function openProductPage() {
                     localStorage.setItem("clickedDescription", clickedDescription);
                     localStorage.setItem("clickedUseful", clickedUseful);
                     localStorage.setItem("clickedImg", clickedImg);
+
+                    localStorage.setItem("openedProduct", JSON.stringify(productsData[i]));
                 }
             }
+            // console.log(JSON.parse(localStorage.getItem("openedProduct")));
+
             location.href = "productPage.html";
         })
     });
@@ -1305,10 +1389,8 @@ function makeOrderWork() {
         el.addEventListener('click', () => {
             for (let i = 0; i < productsData.length; i++) {
                 if (onClick(el.parentNode) == productsData[i].id) {
-                    console.log(doesIdExist(onClick(el.parentNode)));
                     if (!doesIdExist(onClick(el.parentNode))) {
                         addToCart(productsData[i]);
-                        console.log(storedCartItems);
                     }
                 }
             }
@@ -1323,6 +1405,10 @@ $(".shop-cart").on('click', function () {
 });
 
 $(".shop-cart-text").on('click', function () {
+    location.href = "cart.html";
+});
+
+$(".footer__shop-cart span").on('click', function () {
     location.href = "cart.html";
 });
 

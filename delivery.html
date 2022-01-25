@@ -13,6 +13,7 @@
 <body>
     <div class="wrapper">
         <div class="content">
+
             <header class="header">
                 <div class="header__container container">
                     <div class="header__logo">
@@ -51,92 +52,113 @@
 
             </div>
 
-            <div class="info">
-                <div class="info__container container">
-                    <a class="back" href="shop.html">
+            <div class="delivery">
+                <div class="delivery__container container">
+                    <div class="header__menu-icon">
+                        <label class="burger__icon" for="check">
+                            <input type="checkbox" id="check" />
+                            <span class="burger-line red"></span>
+                            <span class="burger-line red"></span>
+                            <span class="burger-line red"></span>
+                        </label>
+                    </div>
+                    <a class="back" href="index.html">
                         <img class="go-back" src="./img.svg/red-right-arrow.svg" alt="">
-                        Назад в магазин
+                        Доставка
                     </a>
-                    <div class="product__block">
-                        <img class="product__img" id="product-img" src="./img.jpg/product-img.jpg" />
-                        <div class="product__info">
-                            <p class="product__title" id="product-title">
+                    <div class="delivery__description">
+                        <div class="delivery__img">
+                            <img src="./img.png/delivery-car.png" alt="" class="delivery__car">
+                        </div>
+                        <div class="delivery__info">
+                            <p class="delivery__title">Доставка <span class="bold">Сын Мясника</span></p>
+                            <p class="delivery__text">
+                                Заказанный товар можно получить в нашей мясной лавке в Жар Птица Торговые Ряды напрямую,
+                                либо вы можете оформить доставку. Сын мясника доставляет Вам мясо, сохраняя
+                                первоначальное
+                                качество и свежесть продукта. Авто оборудовано холодильным отсеком для сохранения
+                                первоначального вида парного мяса, ведь мясо от СМ - требует особого отношения.
                             </p>
-                            <p class="product__price" id="product-price">
-                                <span class="currency">руб./кг</span>
-                            </p>
-                            <p class="product__description" id="product-description">
-
-                            </p>
-                            <button class="product__btn" type="button">Добавить в корзину</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="aditional">
-                <div class="aditional__container container">
-                    <div class="aditional__useful">
-                        <p class="aditional__useful-title">Полезно знать</p>
-                        <p class="aditional__useful-text" id="product-useful">
+            <div class="conditions">
+                <div class="conditions__container container">
+                    <div class="conditions__title">
+                        <p class="conditions__title-text">Условия доставки</p>
+                        <span class="conditions__title-line"></span>
+                    </div>
+                    <p class="conditions__text">
+                        <span class="bold">
+                            Как сказал Владимир Владимирович Путин: "Везёт тем — кто везёт."<br />
+                            Поэтому Сын Мясника везёт вам мясо!
+                        </span>
+                        <br /> <br />
+                        Подтверждение, что заказ принят, придёт в SMS на указанный номер. При заказе необходимо будет
+                        указать телефон, точный адрес, желаемый возможный день доставки и диапазон времени доставки.
+                        Звонок будет, если потребуется дополнительная информация по условиям доставки. Но так же и вы
+                        можете задавать свои вопросы по телефону 89159333007. В день заказа вы получите СМС-уведомление
+                        с итоговой суммой заказа, определенной после взвешивания продуктов.
+                    </p>
+                </div>
+            </div>
 
+            <div class="geography">
+                <div class="geography__container container">
+                    <div class="geography__info">
+                        <p class="geography__title">География доставки</p>
+                        <p class="geography__text">
+                            Доставка производится по всей территории Нижнего Новгорода, а так же при определённых
+                            условиях до города Кстово, Бор, Дзержинск, д.Афонино и д.Федяково.
                         </p>
                     </div>
 
-                    <div class="aditional__reviews">
-                        <p class="aditional__reviews-title">Отзывы наших клиентов</p>
-
-                        <div class="reviews__item">
-                            <img class="reviews__img" src="img.png/review-1.png" alt="">
-                            <div class="reviews__info">
-                                <p class="reviews__name">Алекс Мазур</p>
-                                <p class="reviews__text">
-                                    Очень довольный покупкой мяса для гриля, привезли очень свежее действительно Сын
-                                    Мясника
-                                    заботится о покупателях...
-                                </p>
-                            </div>
-                        </div>
-                        <div class="reviews__item">
-                            <img class="reviews__img" src="img.png/review-2.png" alt="">
-                            <div class="reviews__info">
-                                <p class="reviews__name">Роберт Кузь</p>
-                                <p class="reviews__text">
-                                    Очень довольный покупкой мяса для гриля, привезли очень свежее действительно Сын
-                                    Мясника
-                                    заботится о покупателях...
-                                </p>
-                            </div>
-                        </div>
-                        <div class="reviews__item">
-                            <img class="reviews__img" src="img.png/review-3.png" alt="">
-                            <div class="reviews__info">
-                                <p class="reviews__name">Аня Соколова</p>
-                                <p class="reviews__text">
-                                    Очень довольный покупкой мяса для гриля, привезли очень свежее действительно Сын
-                                    Мясника
-                                    заботится о покупателях...
-                                </p>
-                            </div>
-                        </div>
+                    <div class="geography__img">
+                        <img src="./img.jpg/geography-map.jpg" alt="" class="geography__map">
                     </div>
                 </div>
             </div>
 
-            <div class="more">
-                <div class="more__container container" id="more-products">
+            <div class="terms">
+                <div class="terms__container container">
+                    <div class="terms__title">
+                        <p class="terms__title-text">Сроки доставки</p>
+                        <span class="terms__title-line"></span>
+                    </div>
 
+                    <p class="terms__text">
+                        Доставка заказов осуществляется с 10 до 22:00 по договорённости с клиентом в зависимости от
+                        наличия мяса. Мы принимаем заказы на продукты заранее, чтобы вы всегда могли получить свежую
+                        продукцию. При заказе с 08:00 до 17:00 сего дня, доставка при наличии продукта и свободного
+                        времени осуществляется в этот же день.
+                    </p>
                 </div>
             </div>
 
-            <div class="header__menu-icon">
-                <label class="burger__icon" for="check">
-                    <input type="checkbox" id="check" />
-                    <span class="burger-line red"></span>
-                    <span class="burger-line red"></span>
-                    <span class="burger-line red"></span>
-                </label>
+            <div class="fresh">
+                <div class="fresh__container container">
+                    <p class="fresh__title">Всегда свежий мясопродукт</p>
+
+                    <div class="fresh__slider">
+                        <button class="prev-btn"></button>
+                        <div class="fresh__slider-content">
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
+                            </div>
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
+                            </div>
+                            <div class="fresh__slider-slide">
+                                <img class="fresh__slider-img" src="img.jpg/slider-img.jpg" alt="">
+                            </div>
+                        </div>
+                        <button class="next-btn"></button>
+                    </div>
+                </div>
             </div>
+
 
         </div>
 
@@ -234,8 +256,6 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/main.js"></script>
 </body>
