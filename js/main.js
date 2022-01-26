@@ -6,8 +6,6 @@ $(document).ready(function () {
     });
 });
 
-addPageToStatusPages("index.html", { name: "Главная", link: "index.html" });
-
 const productList = document.getElementById("products-list");
 
 for (let i = 0; i < 8; i++) {
@@ -71,17 +69,4 @@ Array.from(players).forEach(function (player) {
     player.addEventListener('click', loadPlayer, config)
 })
 
-
-
-$(window).scroll(function (event) {
-    const scroll = $(window).scrollTop();
-    if (scroll >= 736) {
-        $(".anchor").addClass("show");
-    } else {
-        $(".anchor").removeClass("show");
-    }
-});
-
-$(".anchor").on('click', function () {
-    window.scrollTo(0, 0);
-});
+$(".intro__btn").on('click', () => location.href = "about.html")

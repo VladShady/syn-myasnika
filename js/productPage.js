@@ -1,5 +1,3 @@
-displayStatusPages();
-
 document.getElementById("product-title").innerText = localStorage.getItem("clickedTitle");
 document.getElementById("product-price").prepend(localStorage.getItem("clickedPrice"));
 document.getElementById("product-description").innerText = localStorage.getItem("clickedDescription");

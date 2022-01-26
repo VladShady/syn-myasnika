@@ -1,6 +1,3 @@
-addPageToStatusPages("shop.html", { name: "Мясная лавка", link: "shop.html" });
-displayStatusPages();
-
 const searchInput = document.getElementById("search-input");
 
 const rangeInput = document.querySelectorAll(".range__input input"),
@@ -179,9 +176,6 @@ function findCommonElementOf3(array1, array2, array3) {
     return result;
 }
 
-
-
-
 function resetFilter(nameOfInput) {
     var el = document.getElementsByName(nameOfInput);
     for (var i = 0; i < el.length; i++) {
@@ -230,6 +224,10 @@ $("#modal-close").on('click', function () {
     $("body").toggleClass('no-scroll');
 });
 
+$(".clear__icon").on('click', () => {
+    document.getElementById("search-input").value = "";
+})
+
 DisplayPage(productsData, singlePage, itemNum, currentPage);
 SetupPagination(productsData, paginationElement, itemNum);
 
@@ -240,6 +238,20 @@ document.getElementById("search-btn").addEventListener('click', function () {
 
     DisplayPage(findCommonElement(priceSorted, afterSearch), singlePage, itemNum, currentPage);
     SetupPagination(findCommonElement(priceSorted, afterSearch), paginationElement, itemNum);
+});
+
+function makeArrFromObjTitles() {
+    let arrOfTitles = productsData.map(el => {
+        return el.title;
+    });
+
+    return arrOfTitles;
+}
+
+
+
+$("#search-input").autocomplete({
+    source: makeArrFromObjTitles(),
 });
 
 priceInput.forEach(input => {

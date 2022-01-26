@@ -1,9 +1,7 @@
 window.onload = function () {
     if (localStorage.getItem("hasCodeRunBefore") === null) {
         let cartItems = [];
-        let statusPages = [];
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        localStorage.setItem("statusPages", JSON.stringify(statusPages));
         localStorage.setItem("hasCodeRunBefore", true);
     }
 }
@@ -18,48 +16,8 @@ findCurrentPage("about.html", "aboutPage");
 let clickedTitle, clickedPrice, clickedDescription, clickedUseful, clickedImg;
 let cartItems = JSON.parse(localStorage.getItem("cartItems"));
 let storedCartItems;
-let statusPages = JSON.parse(localStorage.getItem("statusPages"));
 
-function addPageToStatusPages(url, elementToPush) {
-    let found = false;
-    for (let i = 0; i < statusPages.length; i++) {
-        if (statusPages[i].name == elementToPush.name) {
-            found = true;
-            break;
-        }
-    }
-
-    if (document.URL.includes(url) && !found) {
-        statusPages.push(elementToPush);
-        localStorage.setItem("statusPages", JSON.stringify(statusPages));
-    } else if (found) {
-        let indexOfEl = statusPages.findIndex(currentValue => currentValue.name == elementToPush.name);
-
-        statusPages.length = indexOfEl + 1;
-
-        localStorage.setItem("statusPages", JSON.stringify(statusPages));
-    }
-}
-
-function displayStatusPages() {
-    let zIndex = 1000;
-    let translateX = 0;
-    for (let i = 0; i < statusPages.length; i++) {
-        const statusDiv = document.querySelector(".status");
-        const statusItem = document.createElement('div');
-        statusItem.classList.add('status__item');
-        statusItem.innerHTML = statusPages[i].name;
-        statusItem.setAttribute("style", `z-index: ${zIndex}; transform: translateX(${translateX}px);`);
-        statusItem.addEventListener("click", function () {
-            location.href = statusPages[i].link;
-        })
-
-        statusDiv.appendChild(statusItem);
-
-        zIndex -= 1;
-        translateX -= 10;
-    }
-}
+document.querySelectorAll(".shop-cart-counter").forEach(el => el.innerText = cartItems.length);
 
 function findCurrentPage(url, classNameToFind) {
     if (document.URL.includes(`${url}`)) {
@@ -167,6 +125,7 @@ function makeOrderWork() {
                 if (onClick(el.parentNode) == productsData[i].id) {
                     if (!doesIdExist(onClick(el.parentNode))) {
                         addToCart(productsData[i]);
+                        document.querySelectorAll(".shop-cart-counter").forEach(el => el.innerText = cartItems.length);
                     }
                 }
             }
@@ -174,17 +133,18 @@ function makeOrderWork() {
     });
 }
 
-$(".shop-cart").on('click', function () {
-    location.href = "cart.html";
+$(".footer__shop-cart span, .shop-cart, .shop-cart-text").on('click', () => location.href = "cart.html");
+
+$(window).scroll(function () {
+    const scroll = $(window).scrollTop();
+    if (scroll >= 736) {
+        $(".anchor").addClass("show");
+    } else {
+        $(".anchor").removeClass("show");
+    }
 });
 
-$(".shop-cart-text").on('click', function () {
-    location.href = "cart.html";
-});
-
-$(".footer__shop-cart span").on('click', function () {
-    location.href = "cart.html";
-});
+$(".anchor").on('click', () => window.scrollTo(0, 0));
 
 function cartItemTemplate(arr, idOfItem) {
     return `
@@ -212,6 +172,21 @@ function cartItemTemplate(arr, idOfItem) {
     `
 }
 
+document.querySelectorAll(".logo__icon, .logo__title, .mainPage").forEach(el => {
+    el.addEventListener("click", () => location.href = "index.html");
+});
+
+document.querySelectorAll(".shopPage").forEach(el => {
+    el.addEventListener("click", () => location.href = "shop.html");
+});
+
+document.querySelectorAll(".deliveryPage").forEach(el => {
+    el.addEventListener("click", () => location.href = "delivery.html");
+});
+
+document.querySelectorAll(".aboutPage").forEach(el => {
+    el.addEventListener("click", () => location.href = "about.html");
+});
 
 
 

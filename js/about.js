@@ -9,9 +9,6 @@ $('.fresh__slider-content').slick({
     draggable: false,
 });
 
-addPageToStatusPages("about.html", { name: "О компании", link: "about.html" });
-displayStatusPages();
-
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 

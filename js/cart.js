@@ -1,8 +1,4 @@
 $(document).ready(function () {
-
-    addPageToStatusPages("cart.html", { name: "Корзина", link: "cart.html" });
-    displayStatusPages();
-
     const recomendation = document.getElementById("recomendation");
     document.querySelectorAll(".count").forEach(el => {
         el.disabled = disabled;
@@ -40,9 +36,6 @@ $(document).ready(function () {
         document.querySelector(".price-text").innerText = totalPrice;
     }
 
-    // const sumTitle = '<p class="sum-title">Сумма</p>';
-    // $(".cart__item:first").append(sumTitle);
-
     function deleteCartItem(event) {
         let updatedCartItems = cartItems.filter(item => {
             if (item.id != event.target.parentNode.id) {
@@ -63,6 +56,7 @@ $(document).ready(function () {
     document.querySelectorAll(".cart__item-delete").forEach(el => {
         el.addEventListener('click', deleteCartItem);
         el.addEventListener('click', () => {
+            document.querySelectorAll(".shop-cart-counter").forEach(el => el.innerText = cartItems.length);
             if (!document.querySelector(".cart__item")) {
                 document.querySelector(".sum-title").setAttribute("style", "display: none");
             }

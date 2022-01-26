@@ -123,9 +123,7 @@ body
     transition: color 0.5s ease
 
     &.active
-
-        .menu__item-link
-            color: $red
+        color: $red
 
         &::after
             width: 70%
@@ -148,15 +146,6 @@ body
             background: $red
             border-radius: 10px
 
-        .menu__item-link
-            color: $red
-
-    &-link
-        text-decoration: none
-        color: $white
-
-        transition: color 0.2s linear
-
     &:last-child
         margin-right: 16px
 
@@ -167,12 +156,6 @@ body
         &::after
             display: none
 
-// .shop-cart-wrapper
-//     display: flex
-
-// .shop-cart-text
-//     display: none
-
 .shop-cart
     margin-right: 23px
 
@@ -181,6 +164,26 @@ body
 
     &-text
         display: none
+
+    &-counter
+        position: absolute
+        background-color: $white
+        font-size: 12px
+        font-family: "HelveticaNeueCyrMedium"
+        color: $red
+        width: 14px
+        height: 14px
+        display: flex
+        align-items: center
+        justify-content: center
+        border-radius: 50%
+        transform: translate(25px, -6px)
+
+        &--ftr
+            width: 28px
+            height: 28px
+            font-size: 16px
+            transform: translate(-8px, -29px)
 
     &__btn
         margin-right: 0
@@ -222,40 +225,6 @@ body
         font-family: "HelveticaNeueCyrBold"
         letter-spacing: 0.06em
         color: $white
-
-.status
-    position: relative
-    z-index: 10000
-    display: flex
-
-    &--shop
-        top: -60px
-        left: -30px
-
-        .status__item
-            &:first-child
-                width: 160px
-
-    &__item
-        font-family: "HelveticaNeueCyr"
-        font-size: 15px
-        letter-spacing: 0.06em
-        background: #FFFFFF
-        border: 1px solid rgba(0, 0, 0, 0.05)
-        box-sizing: border-box
-        box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.25)
-        border-radius: 0px 50px 50px 0px
-        text-align: center
-        width: 160px
-        cursor: pointer
-
-        &:first-child
-            width: 260px
-            z-index: 1000
-
-        &:last-child
-            background-color: $red
-            color: $white
 
 .intro
     background: url("../img.jpg/header-bg.jpg") center no-repeat
@@ -1278,6 +1247,7 @@ input[type="number"]::-webkit-inner-spin-button
     display: flex
     align-items: center
     margin-bottom: 23px
+    position: relative
 
     &__input
         position: relative
@@ -1319,6 +1289,73 @@ input[type="number"]::-webkit-inner-spin-button
 
         &:hover
             background-color: $hover-red-btn
+
+.clear__icon
+    position: absolute
+    right: 28%
+    opacity: 0.3
+    cursor: pointer
+
+// .ui-autocomplete
+//     background-color: #f5f5f5
+//     border: 1px solid $red
+//     max-width: 620px
+
+.ui-autocomplete
+    position: absolute
+    top: 100%
+    left: 0
+    z-index: 1000
+    float: left
+    display: none
+    min-width: 160px
+    padding: 4px 0
+    margin: 0 0 10px 25px
+    list-style: none
+    background-color: #ffffff
+    border-color: #ccc
+    border-color: rgba(0, 0, 0, 0.2)
+    border-style: solid
+    border-width: 1px
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 5px
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+    -webkit-background-clip: padding-box
+    -moz-background-clip: padding
+    background-clip: padding-box
+    *border-right-width: 2px
+    *border-bottom-width: 2px
+
+    & > li > div
+        padding: 4px 10px
+
+    li.ui-menu-item
+        font-family: "HelveticaNeueCyrMedium"
+        color: $black
+        font-size: 16px
+
+.ui-menu-item > a.ui-corner-all
+    display: block
+    padding: 3px 15px
+    clear: both
+    font-weight: normal
+    line-height: 18px
+    color: #555555
+    white-space: nowrap
+    text-decoration: none
+
+.ui-state-hover, .ui-state-active
+    color: #ffffff
+    text-decoration: none
+    background-color: $red
+    border-radius: 0px
+    -webkit-border-radius: 0px
+    -moz-border-radius: 0px
+    background-image: none
+    cursor: pointer
 
 .modal
     display: none

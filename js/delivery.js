@@ -9,9 +9,6 @@ $('.fresh__slider-content').slick({
     draggable: false,
 });
 
-addPageToStatusPages("delivery.html", { name: "Доставка", link: "delivery.html" });
-displayStatusPages();
-
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 
